@@ -21,6 +21,5 @@
 17. 钟伟东 21821073
 
 ## 课程PPT网址
-```
-https://github.com/Zhejiang-University-GKC/OrganicIntelligentCourseware/releases/tag/1.0.0
-```
+
+`https://github.com/Zhejiang-University-GKC/OrganicIntelligentCourseware/releases/tag/1.0.0`
