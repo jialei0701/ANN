@@ -19,3 +19,8 @@
 15. 叶晨 21821211
 16. 徐帅 21821174
 17. 钟伟东 21821073
+
+##课程PPT网址
+```
+https://github.com/Zhejiang-University-GKC/OrganicIntelligentCourseware/releases/tag/1.0.0
+```
