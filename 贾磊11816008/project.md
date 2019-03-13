@@ -21,7 +21,8 @@
 
 ## 1. 选择论文
 
-**Title: CNNsite: Prediction of DNA-binding Residues in Proteins Using Convolutional Neural Network with Sequence Features.**
+**Title: **
+[CNNsite: Prediction of DNA-binding Residues in Proteins Using Convolutional Neural Network with Sequence Features.](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/Zhou%20et%20al.%20-%202017%20-%20CNNsite%20Prediction%20of%20DNA-binding%20residues%20in%20proteins%20using%20Convolutional%20Neural%20Network%20with%20sequence%20features.pdf)
 
 **Abstract:**
 
