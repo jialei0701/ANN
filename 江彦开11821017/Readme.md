@@ -18,7 +18,7 @@
 
 #### 1. Choose a paper
 
-Mask R-CNN
+[Mask R-CNN](https://arxiv.org/pdf/1703.06870.pdf)
 
 #### 2. Read paper and understand
 
