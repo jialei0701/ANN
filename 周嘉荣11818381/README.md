@@ -14,10 +14,10 @@
 | 5.撰写报告 | Apr.18 | N
 
 ### 选择论文
- 
+[Bridging the Gap Between 2D and 3D Organ Segmentation with Volumetric Fusion Net](Bridging the Gap Between 2D and 3D Organ Segmentation with Volumetric Fusion Net.pdf)
 
 * **Abstract**
-> There has been a debate on whether to use 2D or 3D deep neural networks for volumetric organ segmentation. Both 2D and 3D models have their advantages and disadvantages. In this paper, we present an alternative framework, which trains 2D networks on different view-points for segmentation, and builds a 3D Volumetric Fusion Net (VFN) to fuse the 2D segmentation results. VFN is relatively shallow and contains much fewer parameters than most 3D networks, making our framework more effcient at integrating 3D information for
+> There has been a debate on whether to use 2D or 3D deep neural networks for volumetric organ segmentation. Both 2D and 3D models have their advantages and disadvantages. In this paper, we present an alternative framework, which trains 2D networks on dierent view-points for segmentation, and builds a 3D Volumetric Fusion Net (VFN) to fuse the 2D segmentation results. VFN is relatively shallow and contains much fewer parameters than most 3D networks, making our framework more ecient at integrating 3D information for
 segmentation.We train and test the segmentation and fusion modules individually, and propose a novel strategy, named cross-cross-augmentation, to make full use of the limited training data. We evaluate our framework on several challenging abdominal organs, and
 verify its superiority in segmentation accuracy and stability over existing 2D and 3D approaches.
 
