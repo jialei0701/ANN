@@ -1,11 +1,11 @@
 # 生物智能算法 神经网络组
 
-##Personal information
+## Personal information
 + Name: 贾磊
 + Student ID: 11816008
 + Email: jialei0701@foxmail.com
 
-##Timeline
+## Timeline
 
 |Task|Date|Done|
 --|--|--
