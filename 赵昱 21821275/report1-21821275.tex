@@ -1,0 +1,77 @@
+% !TEX program = xelatex
+\documentclass[a4paper, notitlepage]{article}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.6}
+\usepackage[]{xeCJK}
+\usepackage{cite}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithmicx,algorithm}
+\usepackage{booktabs}
+
+\setCJKmainfont{思源宋体 CN}
+\renewcommand{\refname}{参考文献}
+\renewcommand{\tablename}{表.}
+\renewcommand{\figurename}{图.}
+\renewcommand{\thetable}{\arabic{table}}
+\renewcommand{\thefigure}{\arabic{figure}}
+%\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+\newcommand{\upcite}[1]{\cite{#1}}
+
+\linespread{1.2}
+\begin{document}
+
+\setlength{\parindent}{0pt}
+\begin{center}
+	\LARGE\textbf{生物智能与算法 Report-1}
+\end{center}
+\vspace{1em}
+
+\begin{center}
+	\textbf{赵昱 21821275}
+\end{center}
+
+\setlength{\parindent}{2em}
+
+\section{简介}
+目标检测问题分为两个阶段，即目标定位（确定目标所在位置，回归问题）
+和目标分类（确定候选框内的目标所属类别），常规方法通常采用滑动窗口加人工
+特征分类器进行检测。
+
+YOLO系列\cite{1,2,3}是首个使用单个CNN模型同时处理回归和分类两个问题的神经网络模型。
+
+本项目选择YOLO系列作为多类别目标检测（通常叫做通用目标检测）所采用的模型，尝试复现每个版本并进行比较，同时针对
+一些特殊应用（如人脸检测等单类别问题），根据自己的需求训练模型。
+
+\section{选择论文}
+（1）：[YOLO v1-CVPR2016] You Only Look Once: Unified, Real-Time Object Detection
+
+（2）：[YOLO v2-CVPR2017] YOLO9000: Better, Faster, Stronger
+
+（3）：[YOLO v3-(arxiv)2018] YOLOv3: An Incremental Improvement
+
+\section{目标}
+（1）：精读论文，理解模型，分析方法的优缺点和创新之处
+
+（2）：复现论文
+
+（3）：和其他方法进行对比实验
+
+\begin{thebibliography}{X}
+\bibitem{1}
+Redmon J, Divvala S, Girshick R, et al. You only look once: Unified, real-time object detection[C]//Proceedings of the IEEE conference on computer vision and pattern recognition. 2016: 779-788.
+\bibitem{2}
+Redmon J, Farhadi A. YOLO9000: better, faster, stronger[C]//Proceedings of the IEEE conference on computer vision and pattern recognition. 2017: 7263-7271. 
+\bibitem{3} 
+Redmon J, Farhadi A. Yolov3: An incremental improvement[J]. arXiv preprint arXiv:1804.02767, 2018.
+\end{thebibliography}
+
+%\section*{附录 A （若没有附录则删除此章节）}
+\clearpage
+\bibliography{ref}
+\bibliographystyle{unsrt}
+\end{document}

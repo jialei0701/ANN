@@ -1,4 +1,4 @@
-### 生物智能与算法
+## 生物智能与算法
 
 ### Personal Information
 * **Name**: 赵昱  
@@ -16,7 +16,7 @@
 | 5. 形成最后报告 | Apr. 18 |  | 
 
 ### 1. 选择论文
-查看阶段报告:[Tex]()，[PDF]()
+查看阶段报告:[Tex](report1-21821275.tex)，[PDF](report1-21821275.pdf)
 
 目标检测问题分为两个阶段，即目标定位（确定目标所在位置，回归问题）
 和目标分类（确定候选框内的目标所属类别），常规方法通常采用滑动窗口加人工
@@ -29,7 +29,7 @@
 
 [[YOLO v1-CVPR2016] You Only Look Once: Unified, Real-Time Object Detection](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf)  
 [[YOLO v2-CVPR2017] YOLO9000: Better, Faster, Stronger](http://openaccess.thecvf.com/content_cvpr_2017/papers/Redmon_YOLO9000_Better_Faster_CVPR_2017_paper.pdf)  
-[[YOLO v3-(arxiv)2018] YOLOv3: An Incremental Improvement ](https://arxiv.org/pdf/1804.02767)  
+[[YOLO v3-(arxiv)2018] YOLOv3: An Incremental Improvement](https://arxiv.org/pdf/1804.02767)  
 
 ### 2. 精读论文，理解模型
 TODO
@@ -42,5 +42,6 @@ TODO
 
 ### 5. 形成最后报告
 TODO
+
 查看最终报告:[Tex]()，[PDF]()
  
