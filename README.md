@@ -22,3 +22,6 @@
 ## 课程PPT网址
 
 > https://github.com/Zhejiang-University-GKC/OrganicIntelligentCourseware/releases/tag/1.0.0
+
+## 本周任务
+完成论文选题，提供简要中文摘要。
