@@ -1,7 +1,7 @@
 ### About me
 * **Name**: 徐帅  
 * **Student ID**: 21821174  
-* **Topic**: Neural Networks
+* **Email**: xushuai100@gmail.com
 ### Schedule
 
 Task|Due|Done
