@@ -25,10 +25,10 @@
 &emsp;2.基于PCO来计算PPMI矩阵  
 &emsp;3.利用堆叠去噪自编码器来学习节点的低维表示  
 1.random surfing  
-&emsp;p_{k}=\alpha p_{k-1}A+(1-\alpha )p_{0}  
+&emsp;$p_{k}=\alpha p_{k-1}A+(1-\alpha )p_{0}$  
 &emsp;$r=\sum_{k=1}^{K}p_{k}$  
 即通过转移概率矩阵来求得节点的k跳所能到达节点的概率,然后通过加权和获得节点的概率共现矩阵PCO.  
-2.基于PCO来计算PPMI矩阵 
+2.基于PCO来计算PPMI矩阵  
 &emsp;$PMI_{w,c}=log(\frac{\#(w,c)\cdot \left | D \right |)}{\#(w)\cdot \#(c)}))$  
 &emsp;$PPMI_{w,c}=max(PMI_{w,c},0)$  
 通过节点的概率共现矩阵获得PPMI矩阵  
