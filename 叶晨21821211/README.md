@@ -2,25 +2,26 @@
 * **Name**: 叶晨
 * **Student ID**: 21821211  
 * **Topic**: Neural Networks
+* **Email**: ye.chen@zju.edu.cn
 
 ### Schedule
 
 | Task | Due | Done |
 | :--:| :--: | :--: |
-| 1.选择论文 | Mar.14 | Y |
-| 2.精读论文 | Mar.21 | N
-| 3.复现论文 | Apr.4 | N
-| 4. 完成实验 | Apr.11 | N
-| 5.撰写报告 | Apr.18 | N
+| 1.选择论文 | Mar.14 | √ |
+| 2.精读论文 | Mar.21 | 
+| 3.复现论文 | Apr.4 | 
+| 4. 完成实验 | Apr.11 | 
+| 5.撰写报告 | Apr.18 | 
 
 ### 选择论文
-[GraphSAGE: Inductive Representation Learning on Large Graphs](GraphSAGE.pdf)  
+[ASNE: Attributed Social Network Embedding](ASNE.pdf)  
 
 * **Abstract**
-> Low-dimensional embeddings of nodes in large graphs have proved extremely useful in a variety of prediction tasks, from content recommendation to identifying protein functions. However, most existing approaches require that all nodes in the graph are present during training of the embeddings; these previous approaches are inherently transductive and do not naturally generalize to unseen nodes. Here we present GraphSAGE, a general inductive framework that leverages node feature information (e.g., text attributes) to efficiently generate node embeddings for previously unseen data. Instead of training individual embeddings for each node, we learn a function that generates embeddings by sampling and aggregating features from a node’s local neighborhood. Our algorithm outperforms strong baselines on three inductive node-classification benchmarks: we classify the category of unseen nodes in evolving information graphs based on citation and Reddit post data, and we show that our algorithm generalizes to completely unseen graphs using a multi-graph dataset of protein-protein interactions.
+> Embedding network data into a low-dimensional vector space has shown promising performance for many real-world applications, such as node classification and entity retrieval. However, most existing methods focused only on leveraging network structure. For social networks, besides the network structure, there also exists rich information about social actors, such as user profiles of friendship networks and textual content of citation networks. These rich attribute information of social actors reveal the homophily effect, exerting huge impacts on the formation of social networks. In this paper, we explore the rich evidence source of attributes in social networks to improve network embedding. We propose a generic Attributed Social Network Embedding framework (ASNE), which learns representations for social actors (i.e., nodes) by preserving both the structural proximity and attribute proximity. While the structural proximity captures the global network structure, the attribute proximity accounts for the homophily effect. To justify our proposal, we conduct extensive experiments on four real-world social networks. Compared to the state-of-the-art network embedding approaches, ASNE can learn more informative representations, achieving substantial gains on the tasks of link prediction and node classification. Specifically, ASNE significantly outperforms node2vec with an 8.2 percent relative improvement on the link prediction task, and a 12.7 percent gain on the node classification task.
 
 * **摘要**
-> 大图中节点的低维嵌入表示在各种预测任务中非常有用，例如内容推荐和识别蛋白质功能等。然而，现有的大多数方法都要求在训练嵌入表示期间所有节点都必须存在，这些方法本质上是传导的，无法自然地泛化到未知的节点上。现在我们提出GraphSAGE模型，这是一种通用的归纳式框架，它利用节点特征信息（如文本属性）来有效地为以前未知的数据生成节点嵌入。我们不是为每个节点训练单个嵌入，而是学习一个函数，该函数通过从节点的本地邻域中抽样和聚合特性来生成嵌入。我们的算法在三个归纳节点分类的任务上优于对比方法：我们根据文献引用和Reddit 推文数据对进化信息图中的未知节点进行分类，并证明了我们的算法在利用蛋白质-蛋白质相互作用的多图数据集上可以推广到完全未知的图上。
+> 将网络数据嵌入到低维向量空间中，对于节点分类和实体检索等许多实际应用都显示出良好的效果。然而，大多数现有的方法只关注于利用网络结构，但是对于社交网络，除了网络结构外，还存在着丰富的社交角色信息，如朋友网络的用户档案、引文网络的文本内容等。这些丰富的社会行动者属性信息揭示了同质性效应，对社会网络的形式产生了巨大的影响。本文探索了丰富的社会网络属性证据来源，以改善网络嵌入。我们提出了一个通用的属性化社会网络嵌入框架（ASNE），它通过保持结构接近性和属性接近性来学习社会参与者（即节点）的表示。结构邻近度捕获全局网络结构，属性邻近度解释了同质性效应。为了证明我们提出的方法是正确的，我们在四个现实社会网络上进行了广泛的实验。与最先进的网络嵌入方法相比，ASNE可以学习更多的信息表示，从而在链路预测和节点分类任务上取得实质性的进展。具体来说，ASNE显著优于node2vec，链路预测任务的相对改进率为8.2%，节点分类任务的增益为12.7%。
 
 ### 精读论文
 
