@@ -15,7 +15,7 @@
 
 ### 选择论文
 [Deep Neural Networks for Learning Graph Representations](DNGR.pdf)  
-
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 * **摘要**
 > &ensp;本文提出了一种新的模型,通过捕获图的结构特征,从而能够学习图的表示,为图中每个节点生成低维向量.与以往的基于采样的模型不同,DNGR主要通过随机搜索从而直接捕获图的结构信息.本文主要使用堆叠去噪自编码器去抽取PMI矩阵中的复杂的非线性特征.为了证明模型的有效性,作者利用了模型所学习到的节点的向量,来完成聚类及可视化任务等.
 ### 精读论文
@@ -35,7 +35,7 @@
 3.利用堆叠去噪自编码器来学习节点的低维表示  
 将PPMI矩阵中节点对应的向量作为输入,放入SDAE里,获取节点的低维向量表示.并使用逐层的贪婪预训练.最终获得节点的低维向量表示
 
- 
+
 ### 复现论文
 
 ### 完成实验
