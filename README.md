@@ -17,7 +17,7 @@
 
 > https://github.com/Zhejiang-University-GKC/OrganicIntelligentCourseware/releases/tag/1.0.0
 
-组员如下：
+## 组员
 1. 胡一夫 21821237  
 2. 康至煊 21821222  
 3. 王幸运 21821094  
