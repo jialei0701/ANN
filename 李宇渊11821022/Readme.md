@@ -17,7 +17,7 @@ Task|Due|Done
 * **Abstract**
 >In recent years,very deep neural models based convolutional neural networks (CNNs) have achieved remarkable results in natural language processing (NLP). However, the computational complexity also largely increasesas the networks go deeper, which causes long training time. To raise the efﬁciency of calculation, this paper focus on shallow neural model and explores a fast neural text classiﬁcation model FNText, which only contains 3 layers,without activation function and stacked time-consuming convolutional layers. Instead of enumerating a bag of bi-grams, we propose a novel method which utilizes average pooling operation along randomly initializing word vectors to obtain bi-gram features. These additional bi-gramfeatures can further improve the performance of FNText. We improve the training speed by ignoring hyperparameters with zero-gradients. Experiments show that FNText can be trained on more than 300 million words in less than 10 minutes using a standard multicore CPU, and achieves competitive results on several large-scale datasets. Sometimes FNText is on par with very deep neural models.
 ### 精读论文
-#### 重心思想
+#### 中心思想
 * 该模型可以达到甚至超越深度网络模型的准确率；
 * 该模型层数少，无激活函数，训练速度快，可以在一个标准多核CPU上训练；
 * 该模型无RNN等循环结构，可以并行训练。
