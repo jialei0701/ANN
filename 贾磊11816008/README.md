@@ -38,10 +38,35 @@
 
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/datasets.jpg)
 
-**framework**
+**Framework**
 
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/framework.jpg)
 
+**Convolution layer**
+
+输入residue-wise数据S左右填补（m-1）的unuseful residue，转换为矩阵M（类图像像素数据）；
+
+输出为矩阵X，其中X<sub>i,k</sub>表示第k个motif detector在第i个位置的得分；
+
+**Rectification layer**
+
+过滤非高效motif特征
+
+**Pooling layer**
+
+最大池化
+
+**Neural network layer**
+
+综合motif特征、sequence特征、evolutionary特征进行预测。
+采用dropout technique避免overfitting。
+
+
+**不同特征比较**
+![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/ROC.jpg)
+
+**方法间比较**
+![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/compare.jpg)
 
 
 ## 3. 复现论文
