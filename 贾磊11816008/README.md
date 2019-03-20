@@ -63,9 +63,11 @@
 
 
 **不同特征比较**
+
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/ROC.jpg)
 
 **方法间比较**
+
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/compare.jpg)
 
 
