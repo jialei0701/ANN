@@ -34,6 +34,9 @@
 
 ## 2. 精读论文，理解模型
 
+**数据集**
+![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/datasets.jpg)
+
 
 ## 3. 复现论文
 
