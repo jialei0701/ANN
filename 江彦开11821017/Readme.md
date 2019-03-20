@@ -10,7 +10,7 @@
 | Task | Due | Done |
 | :- | :- | :- |
 | 1. 选择综述论文 | Mar. 14 | &radic; |  
-| 2. 精读论文，理解模型 | Mar. 21 | x |  
+| 2. 精读论文，理解模型 | Mar. 21 | &radic; |  
 | 3. 复现论文 | Apr. 4 | x |  
 | 4. 完成对比实验 | Apr. 11 | x |  
 | 5. 形成最后报告 | Apr. 18 | x |  
@@ -25,8 +25,29 @@
 
 #### 2. Read paper and understand
 
-[*Todo*]
+>Mask-RCNN 的几个特点：
 
+1）在边框识别的基础上添加分支网络，用于 语义Mask 识别；
+
+2）训练简单，相对于 Faster 仅增加一个小的 Overhead，可以跑到 5FPS；
+
+3）可以方便的扩展到其他任务，比如人的姿态估计 等；
+
+4）不借助 Trick，在每个任务上，效果优于目前所有的 single-model entries(包括 COCO 2016 的Winners）。
+Mask-RCNN 技术要点
+● 技术要点1 - 强化的基础网络
+
+     通过 ResNeXt-101+FPN 用作特征提取网络，达到 state-of-the-art 的效果。
+
+● 技术要点2 - ROIAlign
+
+     采用 ROIAlign 替代 RoiPooling（改进池化操作）。引入了一个插值过程，先通过双线性插值到14*14，再 pooling到7*7，很大程度上解决了仅通过 Pooling 直接采样带来的 Misalignment 对齐问题。虽然 Misalignment 在分类问题上影响并不大，但在 Pixel 级别的 Mask 上会存在较大误差。后面我们把结果对比贴出来（Table2 c & d），能够看到 ROIAlign 带来较大的改进，可以看到，Stride 越大改进越明显。 
+     
+● 技术要点3 - Loss Function
+
+     每个 ROIAlign 对应 K * m^2 维度的输出。K 对应类别个数，即输出 K 个mask，m对应 池化分辨率（7*7）。Loss 函数定义：
+     Lmask(Cls_k) = Sigmoid (Cls_k)，    平均二值交叉熵 （average binary cross-entropy）Loss，通过逐像素的 Sigmoid 计算得到。
+     Why K个mask？通过对每个 Class 对应一个 Mask 可以有效避免类间竞争
 #### 3. Implementation
 
 [*Todo*]
