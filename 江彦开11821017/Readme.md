@@ -36,6 +36,7 @@
 4）不借助 Trick，在每个任务上，效果优于目前所有的 single-model entries(包括 COCO 2016 的Winners）。
 
 >Mask-RCNN 技术要点
+
 ● 技术要点1 - 强化的基础网络
 
      通过 ResNeXt-101+FPN 用作特征提取网络，达到 state-of-the-art 的效果。
