@@ -50,11 +50,18 @@
 
 输出为矩阵X，其中X<sub>i,k</sub>表示第k个motif detector在第i个位置的得分；
 
+![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/conv_layer.jpg)
+
+
 **Rectification layer**
+
+![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/rectification_layer.jpg)
 
 过滤非高效motif特征
 
 **Pooling layer**
+
+![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/pooling_layer.jpg)
 
 最大池化
 
