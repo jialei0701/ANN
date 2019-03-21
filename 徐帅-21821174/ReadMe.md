@@ -33,9 +33,9 @@ Task|Due|Done
 
 ![loss1](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss1.svg)
 
-其中![loss](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss.svg) 描述的是误差， ![norm]    (https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/norm.svg) 描述的是正则化项
+其中![loss](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss.svg) 描述的是误差， ![norm](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/norm.svg) 描述的是正则化项
 
-和大多数论文一样，作者将主要精力用于寻找一个合适的 ![norm](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85- 21821174/norm.svg) 。
+和大多数论文一样，作者将主要精力用于寻找一个合适的 ![norm](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/norm.svg) 。
 
 作者首先想到的是平方误差，即
 
