@@ -31,7 +31,7 @@ Task|Due|Done
 
 作者首先提出了一个general function:
 
-$L=\sum_{ij}l({Y_{ij},\hat{Y}_{ij}})+\lambda \Omega(\Theta)$
+![](http://latex.codecogs.com/gif.latex?\\L=\sum_{ij}l({Y_{ij},\hat{Y}_{ij}})+\lambda \Omega(\Theta))
 
 其中 l(\cdot) 描述的是误差， \Omega(\cdot) 描述的是正则化项
 
