@@ -25,5 +25,5 @@
 ## 2.精读论文
 #### 数据集: ImageNet
 #### 模型架构
-
+![model Architecture](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/%E8%AE%BA%E6%96%87%E5%9B%BE%E7%89%871.JPG)
 
