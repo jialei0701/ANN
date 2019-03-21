@@ -46,9 +46,11 @@
     
 - 2.2 评估标准
     常见的分类问题，通常使用混淆矩阵来表示分类的结果，即每个类别被分类的结果与真实结果的对比，如下图：
-    ![img](fig_confusion_matrix.png)
+    ![img](figs/fig_confusion_matrix.png)
+
     对于二分类的混淆矩阵，可以计算召回率（Recall）、精确率（Precision），前者是真实样本被检出的概率，后者则是检出的准确率。
-    ![img](fig_precision_recall.jpg)
+    ![img](figs/fig_precision_recall.jpg)
+    
     在此基础上，还可以计算PR曲线，ROC曲线，F指标等。
 
     以上是针对分类算法的判别标准，评价一个检测算法时，主要看两个指标，即是否正确的预测了框内物体的类别；预测的框和人工标注框的重合程度，故需要以下两个评价标准：
@@ -58,13 +60,39 @@
 - 2.3 [[YOLO v1-CVPR2016] You Only Look Once: Unified, Real-Time Object Detection](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf)  
     - 2.3.1 方法
         单阶段（one-stage）目标检测。YOLO将目标检测重新定义为单个回归问题，从图像像素直接到边界框坐标和类概率。
+        ![img](figs/fig_structure_yolov1.PNG)
     - 2.3.2 特色
-    (1)将输入图像的大小调整为448×448；
+    (1)在预训练的时候用的是224*224的输入，一般预训练的分类模型都是在ImageNet数据集上进行的，然后在检测的时候采用448*448的输入
     (2)在图像上运行单个卷积网络；
-    (3)根据模型的置信度对得到的检测进行阈值化。
-    
+    (3)根据模型的置信度对得到的检测进行阈值化。(输出为BB+类概率)
+    ![img](figs/fig_model_yolov1.PNG)
     - 2.3.3 结果
-    ![img](fig_result_yolov1.PNG）
+    ![img](figs/fig_result_yolov1.PNG)
+
+- 2.4 [[YOLO v2-CVPR2017] YOLO9000: Better, Faster, Stronger](http://openaccess.thecvf.com/content_cvpr_2017/papers/Redmon_YOLO9000_Better_Faster_CVPR_2017_paper.pdf)  
+    - 2.4.1 方法
+    同上。
+    - 2.4.2 特色
+    (1)Batch Normalization
+    (2)High Resolution Classifier：预训练分成两步：先用224*224的输入从头开始训练网络，大概160个epoch，然后再将输入调整到448*448，再训练10个epoch。最后再在检测的数据集上fine-tuning，也就是检测的时候用448*448的图像作为输入就可以顺利过渡了。
+    (3)Convolutional With Anchor Boxes
+    ![img](figs/fig_anchor_yolov2.PNG)
+    (4)Dimension Clusters：Faster R-CNN中anchor box的大小和比例是按经验设定的，然后网络会在训练过程中调整anchor box的尺寸。
+如果一开始就能选择到合适尺寸的anchor box，那肯定可以帮助网络更好地预测。所以作者采用k-means的方式对训练集的bounding boxes做聚类，试图找到合适的anchor box。
+    ![img](figs/fig_backbone_yolov2.PNG)
+    - 2.4.3 结果
+    ![img](figs/fig_result_yolov2.PNG)
+
+- 2.5 [[YOLO v3-(arxiv)2018] YOLOv3: An Incremental Improvement](https://arxiv.org/pdf/1804.02767)    
+    - 2.5.1 方法
+    同上。
+    - 2.5.2 特色
+    (1)借鉴了残差网络结构，形成更深的网络层次。
+    (2)9种尺度的先验框，mAP以及对小物体的检测效果有一定的提升。
+    ![img](figs/fig_backbone_yolov3.PNG)
+    ![img](figs/fig_model_yolov3.jpg)
+    - 2.5.3 结果
+    ![img](figs/fig_result_yolov3.PNG)
 
 ## 3. 复现论文
 TODO
