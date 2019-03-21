@@ -29,29 +29,29 @@ Task|Due|Done
 #### 损失函数
 得到的![pred](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/pred.svg)便是预测的概率值 ，这篇文章的一个亮点是其中损失函数的构造
 
-1. 作者首先提出了一个general function:
+作者首先提出了一个general function:
 
-  ![loss1](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss1.svg)
+![loss1](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss1.svg)
 
-  其中![loss](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss.svg) 描述的是误差， ![norm]     (https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/norm.svg) 描述的是正则化项
+其中![loss](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss.svg) 描述的是误差， ![norm]    (https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/norm.svg) 描述的是正则化项
 
-  和大多数论文一样，作者将主要精力用于寻找一个合适的 ![norm](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85- 21821174/norm.svg) 。
+和大多数论文一样，作者将主要精力用于寻找一个合适的 ![norm](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85- 21821174/norm.svg) 。
 
-2. 作者首先想到的是平方误差，即
+作者首先想到的是平方误差，即
 
-  ![loss2](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss2.svg)
+![loss2](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss2.svg)
 
-  但是由于 ![hat_y](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/hat_y.svg) 是一个预测的概率，并不适用于显式反馈（评分）。因此和大多数机器学习方法一样，作者选用了信息论中的交叉熵(cross-entropy)来描述误差。最原始的形式如下：
+但是由于 ![hat_y](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/hat_y.svg) 是一个预测的概率，并不适用于显式反馈（评分）。因此和大多数机器学习方法一样，作者选用了信息论中的交叉熵(cross-entropy)来描述误差。最原始的形式如下：
 
-  ![loss3](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss3.svg)
+![loss3](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss3.svg)
 
-3. 为了能让上述式子满足交叉熵的定义， ![pred](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/pred.svg) 必须是隐式  反馈，但是为了满足论文初衷，作者认为显式反馈会得到更好的表达, 因此为了能够引入显式反馈，作者将评分归一化，得到如下损失函数:
+为了能让上述式子满足交叉熵的定义， ![pred](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/pred.svg) 必须是隐式  反馈，但是为了满足论文初衷，作者认为显式反馈会得到更好的表达, 因此为了能够引入显式反馈，作者将评分归一化，得到如下损失函数:
 
-  ![loss4](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss4.svg)
+![loss4](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss4.svg)
 
-  上面的式子不再是纯粹的交叉熵，归一化的评分可以理解为权重，评分越高的误分类到0的惩罚越高，反之，评分越低无分类到1的惩罚也越高，这符合我们的认知，因此该转化是合理的。
+上面的式子不再是纯粹的交叉熵，归一化的评分可以理解为权重，评分越高的误分类到0的惩罚越高，反之，评分越低无分类到1的惩罚也越高，这符合我们的认知，因此该转化是合理的。
 
-  得到误差之后，便可以分别反向传播回神经网络，用以更新权重信息
+得到误差之后，便可以分别反向传播回神经网络，用以更新权重信息
 #### 结果
 ![result](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/result.png)
 #### 总结
