@@ -27,11 +27,11 @@ Task|Due|Done
 2. 将行、列向量 Y_{i,*} ， Y_{*,i}  分别输入到两个神经网络中，一层层进行特征提取，并且确保两个神经网络输出特征的维度一样，此时输出的就是用户特征 p_i 和物品特征  q_i 。
 3. 计算两个特征的相似度，相似度越高，那么用户i越有可能对物品j感兴趣，作者选用余弦相似度描述两者的相似程度：  Y_{ij}=\frac{p_i^Tq_i^T}{\Vert p_i\Vert\Vert q_i\Vert}
 #### 损失函数
-得到的Y_{ij}便是预测大概率值 ，这篇文章的一个亮点是其中损失函数的构造？
+得到的$Y_{ij}$便是预测大概率值 ，这篇文章的一个亮点是其中损失函数的构造？
 
 作者首先提出了一个general function:
 
-L=\sum_{ij}l({Y_{ij},\hat{Y}_{ij}})+\lambda \Omega(\Theta)
+$L=\sum_{ij}l({Y_{ij},\hat{Y}_{ij}})+\lambda \Omega(\Theta)$
 
 其中 l(\cdot) 描述的是误差， \Omega(\cdot) 描述的是正则化项
 
