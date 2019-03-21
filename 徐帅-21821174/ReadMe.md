@@ -24,18 +24,18 @@ Task|Due|Done
 #### 模型架构
 ![model Architecture](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/arch.png)
 1. 初始化两个神经网络
-2. 将行、列向量 Y_{i,*} ， Y_{*,j}  分别输入到两个神经网络中，一层层进行特征提取，并且确保两个神经网络输出特征的维度一样，此时输出的就是用户特征 p_i 和物品特征  q_j 。
+2. 将行、列向量 ![row_vector](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/row_vector.svg) ， ![colum_vec](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/colum_vec.svg)  分别输入到两个神经网络中，一层层进行特征提取，并且确保两个神经网络输出特征的维度一样，此时输出的就是用户特征 p_i 和物品特征  q_j 。
 3. 计算两个特征的相似度，相似度越高，那么用户i越有可能对物品j感兴趣，作者选用余弦相似度描述两者的相似程度：  ![cos_equ](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/cos.svg)
 #### 损失函数
-得到的Y_{ij}便是预测的概率值 ，这篇文章的一个亮点是其中损失函数的构造？
+得到的![pred](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/pred.svg)便是预测的概率值 ，这篇文章的一个亮点是其中损失函数的构造？
 
 作者首先提出了一个general function:
 
 ![loss1](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss1.svg)
 
-其中 l(\cdot) 描述的是误差， \Omega(\cdot) 描述的是正则化项
+其中![loss](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss.svg) 描述的是误差， ![norm](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/norm.svg) 描述的是正则化项
 
-和大多数论文一样，作者将主要精力用于寻找一个合适的 l(\cdot) 。
+和大多数论文一样，作者将主要精力用于寻找一个合适的 ![norm](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/norm.svg) 。
 
 作者首先想到的是平方误差，即
 
