@@ -22,6 +22,8 @@
 ### title:
 Text-Independent Speaker Verification Based on Triplet Convolutional Neural Network Embeddings
 
+选自：IEEE/ACM Transactions on Audio, Speech, and Language Processing, 2018
+
 ### abstract:
 The effectiveness of introducing deep neural networks into conventional speaker recognition pipelines has been broadly shown to benefit
 system performance. A novel text-independent speaker verification(SV) framework based on the triplet loss and a very deepconvolutional
