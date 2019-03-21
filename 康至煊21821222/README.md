@@ -8,8 +8,8 @@
 ## Timeline
   Task | Date | Done
   ------- | ------- | :-------:
-  1.选择论文 | Mar.14 |   T
-  2.精读论文 | Mar.21 | 
+  1.选择论文 | Mar.14 | T
+  2.精读论文 | Mar.21 | T
   3.复现论文 | Apr.04 |
   4.完成对比试验 | Apr.11 | 
   5.形成报告 | Apr.18 |
@@ -29,4 +29,8 @@
 - preparation network : 当需隐藏图像小于载体图像时，加大需隐藏图像，从而将bit分布在NxN（载体图像大小）对图像进行编码
 - main network : 以载体图像和需隐藏图像做为输入，输出隐藏后的容器图像（container image）
 - reveal network : 接收container image，移除载体图像，揭示隐藏图像
-
+#### 网络细节
+- main network和reveal network为5层卷积层，每层65 filters (50 3x3 filters, 10 4x4 filters and 5 5x5 filters)
+- preparation network为2层相同结构的卷积层
+#### 结果
+![result](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/%E8%AE%BA%E6%96%87%E5%9B%BE%E7%89%872.JPG)
