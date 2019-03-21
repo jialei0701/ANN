@@ -41,11 +41,11 @@ Task|Due|Done
 
 ![loss2](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss2.svg)
 
-但是由于 \hat{Y}_{ij} 是一个预测的概率，并不适用于显式反馈（评分）。因此和大多数机器学习方法一样，作者选用了信息论中的交叉熵(cross-entropy)来描述误差。最原始的形式如下：
+但是由于 ![hat_y](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/hat_y.svg) 是一个预测的概率，并不适用于显式反馈（评分）。因此和大多数机器学习方法一样，作者选用了信息论中的交叉熵(cross-entropy)来描述误差。最原始的形式如下：
 
 ![loss3](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss3.svg)
 
-为了能让上述式子满足交叉熵的定义， Y_{ij} 必须是隐式反馈，但是为了满足论文初衷，作者认为显式反馈会得到更好的表达, 因此为了能够引入显式反馈，作者将评分归一化，得到如下损失函数:
+为了能让上述式子满足交叉熵的定义， ![pred](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/pred.svg) 必须是隐式反馈，但是为了满足论文初衷，作者认为显式反馈会得到更好的表达, 因此为了能够引入显式反馈，作者将评分归一化，得到如下损失函数:
 
 ![loss4](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss4.svg)
 
