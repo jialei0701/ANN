@@ -13,7 +13,7 @@
   3.复现论文 | Apr.04 |
   4.完成对比试验 | Apr.11 | 
   5.形成报告 | Apr.18 |
-  
+*****
 ## 1.选择论文
 #### Title：Hiding Images in Plain Sight:Deep Steganography
 > 31st Conference on Neural Information Processing Systems (NIPS 2017), Long Beach, CA, USA
@@ -21,3 +21,5 @@
 > Steganography is the practice of concealing a secret message within another,ordinary, message. Commonly, steganography is used to unobtrusively hide a smallmessage within the noisy regions of a larger image. In this study, we attemptto place a full size color image within another image of the same size. Deepneural networks are simultaneously trained to create the hiding and revealing processes and are designed to specifically work as a pair. The system is trained on images drawn randomly from the ImageNet database, and works well on naturalimages from a wide variety of sources. Beyond demonstrating the successfulapplication of deep learning to hiding images, we carefully examine how the resultis achieved and explore extensions. Unlike many popular steganographic methodsthat encode the secret message within the least significant bits of the carrier image,our approach compresses and distributes the secret image’s representation across all of the available bits.
 #### 摘要
 > 隐写术是一种在普通的信息中隐藏秘密信息的方法。通常，隐写术被用来在较大图像的噪声区域内隐藏一个小消息。在本研究中，我们尝试将一个全尺寸的彩色图像放置在另一个大小相同的图像中。深层神经网络同时被训练来创建隐藏和揭示过程，并被专门设计成一对。该系统对随机从ImageNet数据库中提取的图像进行培训，并能很好地处理来自各种来源的自然图像。除了演示如何成功地将深度学习应用于隐藏图像之外，我们还仔细研究了结果是如何实现的，并探索了扩展。与许多常用的隐写方法不同，常用方法将秘密消息编码在载波图像中最不重要的比特中，而我们的方法将需要加密的图像压缩和分发在所有可获得的bit中。
+*****
+## 2.精读论文
