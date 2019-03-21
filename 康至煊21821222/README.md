@@ -30,5 +30,5 @@
 - main network : 以载体图像和需隐藏图像做为输入，输出隐藏后的容器图像（container image）
 - reveal network : 接收container image，移除载体图像，揭示隐藏图像
 #### 网络细节
-main network和reveal network为5层卷积层，每层65 filters (50 3x3 filters, 10 4x4 filters and 5 5x5 filters)
-preparation network为2层相同结构的卷积层
+- main network和reveal network为5层卷积层，每层65 filters (50 3x3 filters, 10 4x4 filters and 5 5x5 filters)
+- preparation network为2层相同结构的卷积层
