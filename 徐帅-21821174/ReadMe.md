@@ -22,7 +22,7 @@ Task|Due|Done
 ## 2.精读论文
 #### 数据集: ML100k ML1m Amovie Amusic
 #### 模型架构
-![model Architecture]()
+![model Architecture](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/arch.png)
 1. 初始化两个神经网络
 2. 将行、列向量 Y_{i,*} ， Y_{*,i}  分别输入到两个神经网络中，一层层进行特征提取，并且确保两个神经网络输出特征的维度一样，此时输出的就是用户特征 p_i 和物品特征  q_i 。
 3. 计算两个特征的相似度，相似度越高，那么用户i越有可能对物品j感兴趣，作者选用余弦相似度描述两者的相似程度：  Y_{ij}=\frac{p_i^Tq_i^T}{\Vert p_i\Vert\Vert q_i\Vert}
@@ -53,7 +53,7 @@ l=-\sum_{ij}{\frac{Y_{ij}}{\max{(R)}}\log{\hat{Y}_{ij}}+(1-\frac{Y_{ij}}{\max{(R
 
 得到误差之后，便可以分别反向传播回神经网络，用以更新权重信息
 #### 结果
-![result]()
+![result](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/result.png)
 ### 复现论文
 
 ### 完成实验
