@@ -7,7 +7,7 @@
 Task|Due|Done
 -|:-:|:-:
 1.选择论文|Mar.14|T
-2.精读论文|Mar.21|
+2.精读论文|Mar.21|T
 3.复现论文|Apr.4|
 4.完成实验|Apr.11|
 5.撰写报告|Apr.18|  
@@ -31,7 +31,7 @@ Task|Due|Done
 
 作者首先提出了一个general function:
 
-![](http://latex.codecogs.com/gif.latex?\\L=\sum_{ij}l({Y_{ij},\hat{Y}_{ij}})+\lambda \Omega(\Theta))
+![loss1](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss1.svg)
 
 其中 l(\cdot) 描述的是误差， \Omega(\cdot) 描述的是正则化项
 
@@ -39,15 +39,15 @@ Task|Due|Done
 
 作者首先想到的是平方误差，即
 
-\sum_{ij}w_{ij}\Vert Y_{ij}-\hat{Y}_{ij}\Vert_F^2
+![loss2](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss2.svg)
 
 但是由于 \hat{Y}_{ij} 是一个预测的概率，并不适用于显式反馈（评分）。因此和大多数机器学习方法一样，作者选用了信息论中的交叉熵(cross-entropy)来描述误差。最原始的形式如下：
 
-l=-\sum_{ij}{Y_{ij}\log{\hat{Y}_{ij}}+(1-Y_{ij})\log(1-\hat{Y}_{ij})}
+![loss3](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss3.svg)
 
 为了能让上述式子满足交叉熵的定义， Y_{ij} 必须是隐式反馈，但是为了满足论文初衷，作者认为显式反馈会得到更好的表达, 因此为了能够引入显式反馈，作者将评分归一化，得到如下损失函数:
 
-l=-\sum_{ij}{\frac{Y_{ij}}{\max{(R)}}\log{\hat{Y}_{ij}}+(1-\frac{Y_{ij}}{\max{(R)}})\log(1-\hat{Y}_{ij})}
+![loss4](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss4.svg)
 
 上面的式子不再是纯粹的交叉熵，归一化的评分可以理解为权重，评分越高的误分类到0的惩罚越高，反之，评分越低无分类到1的惩罚也越高，这符合我们的认知，因此该转化是合理的。
 
