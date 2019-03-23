@@ -32,6 +32,9 @@
 [[YOLO v3-(arxiv)2018] YOLOv3: An Incremental Improvement](https://arxiv.org/pdf/1804.02767)  
 
 ## 2. 精读论文，理解模型
+
+查看阶段报告:[Tex](report2-21821275.tex)，[PDF](report2-21821275.pdf)
+
 - 2.1 目标检测问题模型和求解思路
     目标检测问题要求检测到某类物体在图像中是否存在，并且给出其所在位置的包围框（Bounding Box）。
     ![img](figs/fig_problem_model.jpg)
