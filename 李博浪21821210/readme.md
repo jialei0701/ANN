@@ -1,6 +1,6 @@
 ### About me
 * **Name**: 李博浪
-* **Student ID**: 218212100  
+* **Student ID**: 21821210  
 * **Topic**: Neural Networks
 
 ### Schedule

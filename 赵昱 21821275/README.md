@@ -11,7 +11,7 @@
 | :-- | :-: | :-: |
 | 1. 选择论文 | Mar. 14 | &radic; |
 | 2. 精读论文，理解模型 | Mar. 21 | &radic;  |
-| 3. 复现论文 | Apr. 4 |  |
+| 3. 复现论文 | Apr. 4 | &radic; |
 | 4. 完成对比实验 | Apr. 11 |  |
 | 5. 形成最后报告 | Apr. 18 |  | 
 
@@ -32,6 +32,9 @@
 [[YOLO v3-(arxiv)2018] YOLOv3: An Incremental Improvement](https://arxiv.org/pdf/1804.02767)  
 
 ## 2. 精读论文，理解模型
+
+查看阶段报告:[Tex](report2-21821275.tex)，[PDF](report2-21821275.pdf)
+
 - 2.1 目标检测问题模型和求解思路
     目标检测问题要求检测到某类物体在图像中是否存在，并且给出其所在位置的包围框（Bounding Box）。
     ![img](figs/fig_problem_model.jpg)
@@ -44,6 +47,11 @@
 
     对于常规方法的改进，通常可以从这两个阶段着手。如针对目标定位的改进，有RCNN的Selective Search，Fast RCNN的Region Proposal，或直接将其看成一个回归问题。针对分类器的改进，则通常使用更高层次或更复杂的特征，如使用CNN提取的特征。但是根据包围框候选策略得到的包围框通常不会完全贴合目标的边缘，所以很多方案会进行Bounding Box Regression（位置精修），来得到更加准确的包围框。
     
+    检测结果后处理（Post Processing）：非极大值抑制（Non-Maximum Suppression，NMS）
+    滑动窗口经提取特征，经分类器分类识别后，每个窗口都会得到一个分数。但是滑动窗口会导致很多窗口与其他窗口存在包含或者大部分交叉的情况。这时就需要用到NMS来选取那些邻域里分数最高（是目标的概率最大），并且抑制那些分数低的窗口。
+    NMS在计算机视觉领域有着非常重要的应用，如视频目标跟踪、数据挖掘、3D重建、目标识别以及纹理分析等。
+    常用的IOU阈值是 0.3 ~ 0.5
+
 - 2.2 评估标准
     常见的分类问题，通常使用混淆矩阵来表示分类的结果，即每个类别被分类的结果与真实结果的对比，如下图：
     ![img](figs/fig_confusion_matrix.png)
@@ -95,7 +103,7 @@
     ![img](figs/fig_result_yolov3.PNG)
 
 ## 3. 复现论文
-TODO
+查看阶段报告:[Tex](report3-21821275.tex)，[PDF](report3-21821275.pdf)
 
 ## 4. 完成对比实验
 TODO
