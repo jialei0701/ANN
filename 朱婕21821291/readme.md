@@ -7,7 +7,7 @@ Task|Due|Done
 -|:-:|:-:
 1.选择论文|Mar.14|T
 2.精读论文|Mar.21|T
-3.复现论文|Apr.4|
+3.复现论文|Apr.4|T
 4.完成实验|Apr.11|
 5.撰写报告|Apr.18|  
 ### 选择论文
@@ -18,7 +18,7 @@ Thomas N. Kipf, Max Welling, Semi-Supervised Classification with Graph Convoluti
 ### 精读论文
 [详见精读论文.pdf](https://github.com/jialei0701/ANN/blob/master/%E6%9C%B1%E5%A9%95%2021821291/%E7%B2%BE%E8%AF%BB%E8%AE%BA%E6%96%87.pdf)
 ### 复现论文
-
+Please look at gcn
 ### 完成实验
 
 ### 撰写报告
