@@ -60,7 +60,14 @@ Task|Due|Done
 2. 提出一种既包含显式反馈又包含隐式反馈的损失函数
 3. 在多个数据集上跑出来的效果都非常可观
 ### 复现论文
-
+LFM虽然可以有效利用隐式反馈来学习到用户和物品的隐语义表示；然而LFM学习到的往往是一种线性的浅层的特征。基于此，我们利用多层感知机来获得用户和物品更深层次的特征，提出了多层隐语义模型（multi- latent factor model，MLFM）
+**MLFM架构设想**
+![MLFM-arch](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/MLFM.png)
+我们将 LFM 算法以及 MLFM 算法进行融合，得到一种结合了用户与物品线性以及非线性特征的混合隐语义模型（fusion latent factor model，FLFM）
+**FLFM架构设想**
+![FLFM-arch](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/FLFM.png)
+**模型仿真验证**
+![LOSS](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/LossComp.png)
 ### 完成实验
 
 ### 撰写报告
