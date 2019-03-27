@@ -11,7 +11,7 @@
 | :-- | :-: | :-: |
 | 1. 选择论文 | Mar. 14 | &radic; |
 | 2. 精读论文，理解模型 | Mar. 21 | &radic;  |
-| 3. 复现论文 | Apr. 4 |  |
+| 3. 复现论文 | Apr. 4 | &radic; |
 | 4. 完成对比实验 | Apr. 11 |  |
 | 5. 形成最后报告 | Apr. 18 |  | 
 
@@ -103,7 +103,7 @@
     ![img](figs/fig_result_yolov3.PNG)
 
 ## 3. 复现论文
-TODO
+查看阶段报告:[Tex](report3-21821275.tex)，[PDF](report3-21821275.pdf)
 
 ## 4. 完成对比实验
 TODO
