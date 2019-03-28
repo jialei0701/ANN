@@ -79,8 +79,8 @@
 
 &emsp; Sensitivity (SN), Specificity (SP), Strength (ST), Accuracy (ACC), and Mathews Correlation Coefficient (MCC).
 
-### motif特征有效性
-explanation for the effectiveness of motif features for the prediction of DNA-binding residue
+### Motif特征有效性
+Explanation for the effectiveness of motif features for the prediction of DNA-binding residue
 
 
 
