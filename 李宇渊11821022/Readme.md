@@ -8,7 +8,7 @@ Task|Due|Done
 -|:-:|:-:
 1.选择论文|Mar.14|T
 2.精读论文|Mar.21|T
-3.复现论文|Apr.4|
+3.复现论文|Apr.4|T
 4.完成实验|Apr.11|
 5.撰写报告|Apr.18|  
 ### 选择论文
@@ -31,7 +31,23 @@ Adam
 作者在多个数据集上进行了对比实验，结果如下图所示：
 ![test_res](test_res.JPG)
 ### 复现论文
-
+[训练集](src\train.txt)
+[测试集](src\test.txt)
+[实验代码](src\fntext.c)  
+数据集的内容如下图所示：  
+* 每一行为一段文字
+* 每一行第一个数字为文本类别的标签
+* 每一行逗号后的数字为word index，一个word用一个数字表示，每个数字用空格隔开  
+![data_sample](data_sample.JPG)
 ### 完成实验
+[实验结果](src\fntext_bi_10_500.txt)  
+batch size = 500, epoch = 10  
+Overall Ave Acc = 0.929896667  
 
+Label|Ave Acc|
+-|:-:|
+#0|0.925437778
+#1|0.984912222
+#2|0.899007778
+#3|0.910232222
 ### 撰写报告
