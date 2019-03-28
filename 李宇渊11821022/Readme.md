@@ -33,7 +33,7 @@ Adam
 ### 复现论文
 [训练集](src/train.txt)
 [测试集](src/test.txt)
-[实验代码](src/fntext.c)  
+[实验代码](src/fntext_bi.c)  
 数据集的内容如下图所示：  
 * 每一行为一段文字
 * 每一行第一个数字为文本类别的标签
