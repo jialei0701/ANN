@@ -4,7 +4,7 @@
 + Name: 贾磊
 + Student ID: 11816008
 + Email: jialei0701@foxmail.com
-
+<br/>
 ---
 
 ## Timeline
@@ -16,7 +16,7 @@
 3.复现论文|Mar. 28|
 4.完成对比实验|Apr. 4|
 5.形成报告|Apr. 11|
-
+<br/>
 ---
 
 ## 1. 选择论文
@@ -33,20 +33,20 @@
 
 **摘要**
 >蛋白-DNA复合体在基因调控的过程中扮演着重要的作用。对参与到蛋白-DNA互作的残基（residues）的预测对于理解基因调控有重要意义。现在已经有一些预测方法，但是这些方法忽视了基序（motif）的特征。基序特征是亚序列，其对蛋白质和DNA的识别具有重要意义。为了有效利用基序特征进行DNA绑定残基的鉴定，本研究应用卷积神经网络来提取目标残基周围序列的基序体征。
-
+<br/>
 ---
 
 ## 2. 精读论文，理解模型
 
-**数据集**
+### 数据集###
 
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/datasets.jpg)
 
-**Framework**
+### Framework###
 
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/framework.jpg)
 
-**Convolution layer**
+### Convolution layer###
 
 &emsp; 输入residue-wise数据S左右填补（m-1）的unuseful residue，转换为矩阵M（类图像像素数据）；
 
@@ -54,35 +54,40 @@
 
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/conv_layer.jpg)
 
-
-**Rectification layer**
+### Rectification layer###
 
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/rectification_layer.jpg)
 
 &emsp; 过滤非高效motif特征
 
-**Pooling layer**
+### Pooling layer###
 
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/pooling_layer.jpg)
 
 &emsp;最大池化
 
-**Neural network layer**
+### Neural network layer###
 
 &emsp; 综合motif特征、sequence特征、evolutionary特征进行预测。
 &emsp; 采用dropout technique避免overfitting。
 
 
-**不同特征比较**
+### 不同特征比较###
 
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/ROC.jpg)
 
-**方法间比较**
+### 方法间比较###
 
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/compare.jpg)
 
 &emsp; Sensitivity (SN), Specificity (SP), Strength (ST), Accuracy (ACC), and Mathews Correlation Coefficient (MCC).
 
+### motif特征有效性###
+explanation for the effectiveness of motif features for the prediction of DNA-binding residue
+
+
+
+<br/>
 ---
 ## 3. 复现论文
 
