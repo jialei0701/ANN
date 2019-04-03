@@ -1,19 +1,4 @@
 ####################################################################################################
-# RSTN: Recurrent Saliency Transformation Network for organ segmentation framework                 #
-# This is PyTorch 0.4.0 Python 3.6 verison of OrganSegRSTN in CAFFE Python 2.7 .                   #
-# Author: Tianwei Ni, Huangjie Zheng, Lingxi Xie.                                                  #
-#                                                                                                  #
-# If you use our codes, please cite our paper accordingly:                                         #
-#     Qihang Yu, Lingxi Xie, Yan Wang, Yuyin Zhou, Elliot K. Fishman, Alan L. Yuille,              #
-#         "Recurrent Saliency Transformation Network:                                              #
-#             Incorporating Multi-Stage Visual Cues for Small Organ Segmentation",                 #
-#         in IEEE Conference on Computer Vision and Pattern Recognition, 2018.                     #
-#                                                                                                  #
-# NOTE: this program can be used for multi-organ segmentation.                                     #
-#     Please also refer to its previous version, OrganSegC2F.                                      #
-####################################################################################################
-
-####################################################################################################
 # variables for convenience
 CURRENT_ORGAN_ID=1
 CURRENT_PLANE=A
