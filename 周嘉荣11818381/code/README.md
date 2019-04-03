@@ -39,7 +39,7 @@ It is highly recommended to use one or more modern GPUs for computation.
 
 ###### 3.1.2 Python 3.6.
 
-#### 3.2 PyTorch 0.4.0 or 0.4.1.
+###### 3.1.3 PyTorch 0.4.0 or 0.4.1.
 
 ## 4. Usage
 
