@@ -43,8 +43,6 @@ It is highly recommended to use one or more modern GPUs for computation.
 
 ## 4. Usage
 
-Please follow these steps to reproduce our results on the NIH pancreas segmentation dataset.
-
 #### 4.1 Data preparation
 
 ###### 4.1.1 Download NIH data from https://wiki.cancerimagingarchive.net/display/Public/Pancreas-CT .
@@ -218,9 +216,3 @@ We provide `_fast_functions.so` for python3.6 for acceleration in `coarse2fine_t
 - Finally, you can run `coarse2fine_testing.py` successfully.
 
   - **If fails,** you can comment `post_processing` and `DSC_computation` in *ff*, and **uncomment those in *vanilla python*.** These functions in vanilla python can be run successfully, but slower than C re-implementation.
-
-**NOTE**: currently we set the maximal rounds of iteration to be 10 in order to observe the convergence.
-    Most often, it reaches an inter-DSC of >99% after 3-5 iterations.
-    If you hope to save time, you can slight modify the codes in coarse2fine_testing.py.
-    Testing each volume costs ~40 seconds on a Titan-X Pascal GPU, or ~32s on a Titan-Xp GPU.
-    If you set the threshold to be 99%, this stage will be done within 2 minutes (in average).
