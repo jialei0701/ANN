@@ -1,32 +1,14 @@
 ## 1. Introduction
 
-OrganSegRSTN is a code package for our paper:
-
-  **Qihang Yu**, Lingxi Xie, Yan Wang, Yuyin Zhou, Elliot K. Fishman, Alan L. Yuille,
-    "Recurrent Saliency Transformation Network: Incorporating Multi-Stage Visual Cues for Small Organ Segmentation",
-    in IEEE Conference on CVPR, Salt Lake City, Utah, USA, 2018.
-
-OrganSegRSTN is a segmentation framework designed for 3D volumes.
-    It was originally designed for segmenting abdominal organs in CT scans,
-    but we believe that it can also be used for other purposes,
-    such as brain tissue segmentation in fMRI-scanned images.
-
-OrganSegRSTN is based on the state-of-the-art deep learning techniques.
-    This code package is to be used with *PyTorch*, a deep learning library.
+This code package is to be used with *PyTorch*, a deep learning library.
 
 It is highly recommended to use one or more modern GPUs for computation.
     Using CPUs will take at least 50x more time in computation.
-
-**We provide an easy implementation in which the training stages has only 1 fine-scaled iteration.
-  If you hope to add more, please modify the `model.py` accordingly.
-  As we said in the paper, our strategy of using 1 stage in training and multiple iterations in testing works very well.**
 
 ## 2. File List
 
 | Folder/File                 | Description                                         |
 | :-------------------------- | :-------------------------------------------------- |
-| `README.md`                 | the README file                                     |
-|                             |                                                     |
 | **DATA2NPY/**               | codes to transfer the NIH dataset into NPY format   |
 | `dicom2npy.py`              | transferring image data (DICOM) into NPY format     |
 | `nii2npy.py`                | transferring label data (NII) into NPY format       |
@@ -46,7 +28,6 @@ It is highly recommended to use one or more modern GPUs for computation.
 | `utils.py` | the common functions |
 |                             |                                                     |
 | **SWIG_fast_functions/**               | C codes for acceleration in testing process   |
-| **logs/**                   | training log files on the NIH dataset                |
 
 
 ## 3. Installation
@@ -143,7 +124,7 @@ You can run all the following modules with **one** execution!
 
 ###### 4.3.3 Important notes on initialization, model mode and model convergence.
 
-It is very important to provide a reasonable initialization for our model.
+It is very important to provide a reasonable initialization for the model.
 In the previous step of data preparation, we provide a scratch model for the NIH dataset,
 in which both the coarse and fine stages are initialized using the weights of an FCN-8s model
 (please refer to the [FCN project](https://github.com/shelhamer/fcn.berkeleyvision.org)).
@@ -288,12 +269,3 @@ The 82 cases in the NIH dataset are split into 4 folds:
   * **Fold #1**: testing on Cases 21, 22, ..., 40;
   * **Fold #2**: testing on Cases 41, 42, ..., 61;
   * **Fold #3**: testing on Cases 62, 63, ..., 82.
-
-We provide the trained models on each plane of `Fold #0`, in total 3 files.
-
-Each of these models is around 1.07GB, approximately the size of two (coarse+fine) FCN models.
-  * **Fold #0**: [[X]](https://drive.google.com/file/d/1mYR_t-mi2gDQX_HBdpoLH8ZKGXi7B1Fn/view?usp=sharing)
-                 [[Y]](https://drive.google.com/file/d/126BZDOUk4__g6YBeUN7s1FUzYhxNYZBL/view?usp=sharing)
-                 [[Z]](https://drive.google.com/file/d/1wLu8jaxmthCiM2qXqpq3-3lQchSNcmdk/view?usp=sharing)
-                 (**Accuracy**: coarse-to-fine 84.62%)
-We also attach the log files and testing results for your reference here. Please refer to the `logs/` folder.
