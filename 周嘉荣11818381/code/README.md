@@ -35,25 +35,15 @@ It is highly recommended to use one or more modern GPUs for computation.
 
 #### 3.1 Prerequisites
 
-###### 3.1.1 Please make sure that your computer is equipped with modern GPUs that support CUDA.
+###### 3.1.1 Modern GPUs that support CUDA.
 
-    Without them, you will need 50x more time in both training and testing stages.
+###### 3.1.2 Python 3.6.
 
-###### 3.1.2 Please also make sure that python (we are using 3.6) is installed.
-
-#### 3.2 PyTorch
-
-###### 3.2.1 Download a PyTorch library from https://pytorch.org/ . We are using PyTorch 0.4.0 or 0.4.1.
+#### 3.2 PyTorch 0.4.0 or 0.4.1.
 
 ## 4. Usage
 
 Please follow these steps to reproduce our results on the NIH pancreas segmentation dataset.
-
-**NOTE**: Here we only provide basic steps to run our codes on the NIH dataset.
-    For more detailed analysis and empirical guidelines for parameter setting
-    (this is very important especially when you are using our codes on other datasets),
-    please refer to our technical report (check our webpage for updates).
-
 
 #### 4.1 Data preparation
 
@@ -94,10 +84,6 @@ NOTE: If you use other path(s), please modify the variable(s) in run.sh accordin
     According to the I/O speed of your hard drive, the time cost may vary.
         For a typical HDD, around 20 seconds are required for a 512x512x300 volume.
     This process needs to be executed only once.
-    
-    NOTE: if you are using another dataset which contains multiple targets,
-        you can modify the variables "ORGAN_NUMBER" and "ORGAN_ID" in run.sh,
-        as well as the "is_organ" function in utils.py to define your mapping function flexibly.
 
 You can run all the following modules with **one** execution!
   * a) Enable everything (except initialization) in the beginning part.
@@ -130,14 +116,6 @@ in which both the coarse and fine stages are initialized using the weights of an
 (please refer to the [FCN project](https://github.com/shelhamer/fcn.berkeleyvision.org)).
 This model was pre-trained on PASCALVOC.
 
-###### What does `mode` in RSTN stand for?
-
-We train RSTN model in **three sequential modes `S,I,J`**  in order to make model converge well.
-
-- `S` stands for Separate. The input pair (image, label) of fine FCN is *irrelevant* to the outputs of coarse FCN.
-- `I` stands for Individual. The input (image) of fine FCN is *relevant* to the outputs of coarse FCN, but label is *irrelevant*.
-- `J` stands for Joint. The input pair (image, label) of fine FCN is *relevant* to the outputs of coarse FCN.
-
 ###### How to determine if a model converges and works well?
 
 The coarse loss in the beginning of training is almost 1.0.
@@ -145,17 +123,7 @@ If a model converges, you should observe the loss function values to decrease gr
 **In order to make it work well, in the end of each training stage,
 you need to confirm the average loss to be sufficiently low (e.g. 0.3 in `S`, 0.2 in `I`, 0.15 in `J`).**
 
-###### Training RSTN on other CT datasets?
-
-If you are experimenting on other **CT datasets**, we strongly recommend you to use a pre-trained model,
-such as those pre-trained model attached in the last part of this file.
-We also provide [a mixed model](http://nothing) (to be provided soon),
-which was tuned using all X|Y|Z images of 82 training samples for pancreas segmentation on NIH.
-Of course, do not use it to evaluate any NIH data, as all cases have been used for training.
-
 ###### 4.3.4 Multi-GPU training
-
-> Thank Angtian Wang and Yingwei Li for finding bugs on multi-GPU training.
 
 **For your convenience, we provide `training_parallel.py` to support multi-GPU training.** Thus, you just run it instead of `training.py` in the training stage. But you should *pay attention that:*
 
@@ -256,16 +224,3 @@ We provide `_fast_functions.so` for python3.6 for acceleration in `coarse2fine_t
     If you hope to save time, you can slight modify the codes in coarse2fine_testing.py.
     Testing each volume costs ~40 seconds on a Titan-X Pascal GPU, or ~32s on a Titan-Xp GPU.
     If you set the threshold to be 99%, this stage will be done within 2 minutes (in average).
-
-
-Congratulations! You have finished the entire process. Check your results now!
-
-## 5. Pre-trained Models on the NIH Dataset
-
-**NOTE**: all these models were trained following our default settings.
-
-The 82 cases in the NIH dataset are split into 4 folds:
-  * **Fold #0**: testing on Cases 01, 02, ..., 20;
-  * **Fold #1**: testing on Cases 21, 22, ..., 40;
-  * **Fold #2**: testing on Cases 41, 42, ..., 61;
-  * **Fold #3**: testing on Cases 62, 63, ..., 82.
