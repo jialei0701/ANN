@@ -31,7 +31,7 @@ verify its superiority in segmentation accuracy and stability over existing 2D a
 4.在公开数据库或者自己的数据库进行方法学测试，发现使用VFN这种方法进行腹部器官分割的准确率都优于其他的2D或者3D分割方法。
 
 ### 复现论文
-> 本文的代码复现详见[/code/](https://github.com/jialei0701/ANN/tree/master/%E5%91%A8%E5%98%89%E8%8D%A311818381/code)文件夹，复现的过程及运行我复现代码所需要的操作详见[README.md](https://github.com/jialei0701/ANN/tree/master/%E5%91%A8%E5%98%89%E8%8D%A311818381/code/README.md)。
+> 本文的代码复现详见[/code/](https://github.com/jialei0701/ANN/tree/master/%E5%91%A8%E5%98%89%E8%8D%A311818381/code)文件夹，复现的过程及运行我复现代码所需要的操作详见[/code/README.md](https://github.com/jialei0701/ANN/tree/master/%E5%91%A8%E5%98%89%E8%8D%A311818381/code/README.md)。
 
 ### 完成实验
 
