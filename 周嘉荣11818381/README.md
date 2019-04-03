@@ -9,9 +9,9 @@
 | :--:| :--: | :--: |
 | 1.选择论文 | Mar.14 | Y |
 | 2.精读论文 | Mar.21 | Y |
-| 3.复现论文 | Apr.4 | N
-| 4. 完成实验 | Apr.11 | N
-| 5.撰写报告 | Apr.18 | N
+| 3.复现论文 | Apr.4 | Y |
+| 4. 完成实验 | Apr.11 | N |
+| 5.撰写报告 | Apr.18 | N |
 
 ### 选择论文
 [Bridging the Gap Between 2D and 3D Organ Segmentation with Volumetric Fusion Net](Bridging.pdf)
