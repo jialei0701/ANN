@@ -12,7 +12,7 @@
 --|--|:--:
 1.选择论文|Mar. 14|√
 2.精读论文，理解模型|Mar. 21|√
-3.复现论文|Mar. 28|
+3.复现论文|Mar. 28|√
 4.完成对比实验|Apr. 4|
 5.形成报告|Apr. 11|
 ---
@@ -93,7 +93,7 @@ We find that the residues R, K, G are the important compositions of these motifs
 
 ---
 ## 3. 复现论文
-
+见代码
 
 ---
 ## 4. 完成对比实验
