@@ -68,3 +68,59 @@
       # Return train and test data as numpy arrays.
       return np.array(X_train), np.array(X_test)
 ```
+###构建模型
+```
+def make_model(input_size):
+    input_S = Input(shape=(input_size))
+    input_C= Input(shape=(input_size))
+    
+    encoder = make_encoder(input_size)
+    
+    decoder = make_decoder(input_size)
+    decoder.compile(optimizer='adam', loss=rev_loss)
+    decoder.trainable = False
+    
+    output_Cprime = encoder([input_S, input_C])
+    output_Sprime = decoder(output_Cprime)
+
+    autoencoder = Model(inputs=[input_S, input_C],
+                        outputs=concatenate([output_Sprime, output_Cprime]))
+    autoencoder.compile(optimizer='adam', loss=full_loss)
+    
+    return encoder, decoder, autoencoder
+```
+###训练
+```
+NB_EPOCHS = 1000
+BATCH_SIZE = 32
+
+m = input_S.shape[0]
+loss_history = []
+for epoch in range(NB_EPOCHS):
+    np.random.shuffle(input_S)
+    np.random.shuffle(input_C)
+    
+    t = tqdm(range(0, input_S.shape[0], BATCH_SIZE),mininterval=0)
+    ae_loss = []
+    rev_loss = []
+    for idx in t:
+        
+        batch_S = input_S[idx:min(idx + BATCH_SIZE, m)]
+        batch_C = input_C[idx:min(idx + BATCH_SIZE, m)]
+        
+        C_prime = encoder_model.predict([batch_S, batch_C])
+        
+        ae_loss.append(autoencoder_model.train_on_batch(x=[batch_S, batch_C],
+                                                   y=np.concatenate((batch_S, batch_C),axis=3)))
+        rev_loss.append(reveal_model.train_on_batch(x=C_prime,
+                                              y=batch_S))
+        
+        # Update learning rate
+        K.set_value(autoencoder_model.optimizer.lr, lr_schedule(epoch))
+        K.set_value(reveal_model.optimizer.lr, lr_schedule(epoch))
+        
+        t.set_description('Epoch {} | Batch: {:3} of {}. Loss AE {:10.2f} | Loss Rev {:10.2f}'.format(epoch + 1, idx, m, np.mean(ae_loss), np.mean(rev_loss)))
+    loss_history.append(np.mean(ae_loss))
+```
+###保存模型
+`autoencoder_model.save_weights('model.hdf5')`
