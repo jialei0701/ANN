@@ -38,7 +38,7 @@
 ## 3.复现论文
 [dataset](https://tiny-imagenet.herokuapp.com/)
 ### 创建数据集
-('''
+''')
 def load_dataset_small(num_images_per_class_train=10, num_images_test=500):
     #Loads training and test datasets, from Tiny ImageNet Visual Recogition Challenge.
 
@@ -67,4 +67,4 @@ def load_dataset_small(num_images_per_class_train=10, num_images_test=500):
 
     # Return train and test data as numpy arrays.
     return np.array(X_train), np.array(X_test)
-''')
+('''
