@@ -39,34 +39,34 @@
 [dataset](https://tiny-imagenet.herokuapp.com/)
 ### 创建数据集
 ```
-  def load_dataset_small(num_images_per_class_train=10, num_images_test=500):
-      #Loads training and test datasets, from Tiny ImageNet Visual Recogition Challenge.
+def load_dataset_small(num_images_per_class_train=10, num_images_test=500):
+    #Loads training and test datasets, from Tiny ImageNet Visual Recogition Challenge.
 
-      X_train = []
-      X_test = []
+    X_train = []
+    X_test = []
     
-      # Create training set.
-      for c in os.listdir(TRAIN_DIR):
-          c_dir = os.path.join(TRAIN_DIR, c, 'images')
-          c_imgs = os.listdir(c_dir)
-          random.shuffle(c_imgs)
-          for img_name_i in c_imgs[0:num_images_per_class_train]:
-              img_i = image.load_img(os.path.join(c_dir, img_name_i))
-              x = image.img_to_array(img_i)
-              X_train.append(x)
-      random.shuffle(X_train)
+    # Create training set.
+    for c in os.listdir(TRAIN_DIR):
+        c_dir = os.path.join(TRAIN_DIR, c, 'images')
+        c_imgs = os.listdir(c_dir)
+        random.shuffle(c_imgs)
+        for img_name_i in c_imgs[0:num_images_per_class_train]:
+            img_i = image.load_img(os.path.join(c_dir, img_name_i))
+            x = image.img_to_array(img_i)
+            X_train.append(x)
+    random.shuffle(X_train)
     
-      # Create test set.
-      test_dir = os.path.join(TEST_DIR, 'images')
-      test_imgs = os.listdir(test_dir)
-      random.shuffle(test_imgs)
-      for img_name_i in test_imgs[0:num_images_test]:
-          img_i = image.load_img(os.path.join(test_dir, img_name_i))
-          x = image.img_to_array(img_i)
-          X_test.append(x)
+    # Create test set.
+    test_dir = os.path.join(TEST_DIR, 'images')
+    test_imgs = os.listdir(test_dir)
+    random.shuffle(test_imgs)
+    for img_name_i in test_imgs[0:num_images_test]:
+        img_i = image.load_img(os.path.join(test_dir, img_name_i))
+        x = image.img_to_array(img_i)
+        X_test.append(x)
 
-      # Return train and test data as numpy arrays.
-      return np.array(X_train), np.array(X_test)
+    # Return train and test data as numpy arrays.
+    return np.array(X_train), np.array(X_test)
 ```
 ### 构建模型
 ```
