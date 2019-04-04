@@ -34,3 +34,5 @@
 - preparation network为2层相同结构的卷积层
 #### 结果
 ![result](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/%E8%AE%BA%E6%96%87%E5%9B%BE%E7%89%872.JPG)
+
+## 3.复现论文
