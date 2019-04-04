@@ -124,3 +124,5 @@ for epoch in range(NB_EPOCHS):
 ```
 ### 保存模型
 `autoencoder_model.save_weights('model.hdf5')`
+### 完整代码
+[hiding_image](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/hiding_image.py)
