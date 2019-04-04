@@ -122,6 +122,7 @@ for epoch in range(NB_EPOCHS):
         t.set_description('Epoch {} | Batch: {:3} of {}. Loss AE {:10.2f} | Loss Rev {:10.2f}'.format(epoch + 1, idx, m, np.mean(ae_loss), np.mean(rev_loss)))
     loss_history.append(np.mean(ae_loss))
 ```
+![train_process](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/result/train_process.JPG)
 ### 保存模型
 `autoencoder_model.save_weights('model.hdf5')`
 ### 完整代码
