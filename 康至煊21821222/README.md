@@ -68,7 +68,7 @@
       # Return train and test data as numpy arrays.
       return np.array(X_train), np.array(X_test)
 ```
-###构建模型
+### 构建模型
 ```
 def make_model(input_size):
     input_S = Input(shape=(input_size))
@@ -89,7 +89,7 @@ def make_model(input_size):
     
     return encoder, decoder, autoencoder
 ```
-###训练
+### 训练
 ```
 NB_EPOCHS = 1000
 BATCH_SIZE = 32
@@ -122,5 +122,5 @@ for epoch in range(NB_EPOCHS):
         t.set_description('Epoch {} | Batch: {:3} of {}. Loss AE {:10.2f} | Loss Rev {:10.2f}'.format(epoch + 1, idx, m, np.mean(ae_loss), np.mean(rev_loss)))
     loss_history.append(np.mean(ae_loss))
 ```
-###保存模型
+### 保存模型
 `autoencoder_model.save_weights('model.hdf5')`
