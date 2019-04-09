@@ -3,7 +3,7 @@
 学号：21821094 <br>
 邮箱：2968555822@qq.com <br>
 电话：15956751830<br>
-# 选择论文
+# 1. 选择论文
 **Title:**<br>
 Deep Adaptive Sampling for Low Sample Count Rendering <br><br>
 **Abstract:**<br>
@@ -34,7 +34,9 @@ distributed samples are required to achieve equal quality without adaptive sampl
 <br><br>
 
 # 2. 精读论文，理解模型<br>
-  共有两个CNN,第一个CNN(Sampling Map Estimator)用于估算采样图；第二个CNN（Denoiser）用于给图像去燥。<br>
+  共有两个CNN,第一个CNN(Sampling Map Estimator)用于估算采样图，他的输入是1spp的图像，还有一些其他的辅助缓冲信息，输出是一个采样图；第二个CNN（Denoiser）用于给图像去燥，输入是4spp的图像，输出是最终的图像。<br>
   ## 工作过程图
-  
   ![avator](https://github.com/jialei0701/ANN/blob/master/%E7%8E%8B%E5%B9%B8%E8%BF%9021821094/process.png)
+  
+  ## 网络结构
+  ![avator](https://github.com/jialei0701/ANN/blob/master/%E7%8E%8B%E5%B9%B8%E8%BF%9021821094/cnn.png)
