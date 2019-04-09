@@ -33,4 +33,8 @@ distributed samples are required to achieve equal quality without adaptive sampl
 与基于深度学习去噪的均匀采样的6 spp质量相当。因此，在没有自适应采样的情况下，额外需要50％均匀分布的样本以实现相同的质量。
 <br><br>
 
-# 2. 精读论文，理解模型a
+# 2. 精读论文，理解模型<br>
+  共有两个CNN,第一个CNN(Sampling Map Estimator)用于估算采样图；第二个CNN（Denoiser）用于给图像去燥。<br>
+  ## 工作过程图
+  
+  ![avator](https://github.com/jialei0701/ANN/blob/master/%E7%8E%8B%E5%B9%B8%E8%BF%9021821094/process.png)
