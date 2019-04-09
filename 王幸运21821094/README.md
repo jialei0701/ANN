@@ -65,7 +65,7 @@ distributed samples are required to achieve equal quality without adaptive sampl
  最后一个阶段：在每次迭代中，去微调这两个网络。<br>
  这3个阶段分别经过25000,5000,40000次迭代后收敛。<br>
  # 3. 复现论文<br>
- 以下是部分代码，详细请看code文件夹<br>
+ 以下是部分代码，详细请看其他py文件<br>
  
  ```python
  #!/usr/bin/env python3
