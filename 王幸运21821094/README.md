@@ -5,7 +5,9 @@
 电话：15956751830<br>
 # 1. 选择论文
 **Title:**<br>
-Deep Adaptive Sampling for Low Sample Count Rendering <br><br>
+[Deep Adaptive Sampling for Low Sample Count Rendering]
+(https://github.com/jialei0701/ANN/blob/master/%E7%8E%8B%E5%B9%B8%E8%BF%9021821094/01Deep%20Adaptive%20Sampling%20for%20Low%20Sample%20Count%20Rendering-%E5%B7%B2%E8%BD%AC%E6%A1%A3.docx)
+
 **Abstract:**<br>
 Recently, deep learning approaches have proven successful at removing noise from Monte Carlo (MC) rendered images at extremely
 low sampling rates, e.g., 1-4 samples per pixel (spp). While these methods provide dramatic speedups, they operate on uniformly
@@ -55,4 +57,14 @@ distributed samples are required to achieve equal quality without adaptive sampl
    ![avator](https://github.com/jialei0701/ANN/blob/master/%E7%8E%8B%E5%B9%B8%E8%BF%9021821094/gradient4.png)
    <br>当N->∞，h=0,I∞表示地面真实图像，最终得到：<br>
     ![avator](https://github.com/jialei0701/ANN/blob/master/%E7%8E%8B%E5%B9%B8%E8%BF%9021821094/gradient6.png)
+ ### 数据集
+ 训练的数据集由50个场景的700个输入和地面真实图像，而每个场景又有2-30个不同的视点。这些图像具有分布式影响的，比如景深，运动模糊等。<br>
+ ![avator](https://github.com/jialei0701/ANN/blob/master/%E7%8E%8B%E5%B9%B8%E8%BF%9021821094/Dataset.png)
+ ### 具体细节
+ 分为3个阶段：<br>
+ 第一个阶段是：在一些噪音图像与其对应的地面真实图像上去训练Denoiser网络。<br>
+ 第二个阶段是：利用第一个阶段得到的Denoiser网络去训练sanpling map网络。<br>
+ 最后一个阶段：在每次迭代中，去微调这两个网络。<br>
+ 这3个阶段分别经过25000,5000,40000次迭代后收敛。<br>
+ 
    
