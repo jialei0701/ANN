@@ -2,6 +2,7 @@
 姓名：王幸运 <br>
 学号：21821094 <br>
 邮箱：2968555822@qq.com <br>
+电话：15956751830<br>
 # 选择论文
 **Title:**<br>
 Deep Adaptive Sampling for Low Sample Count Rendering <br><br>
@@ -32,4 +33,4 @@ distributed samples are required to achieve equal quality without adaptive sampl
 与基于深度学习去噪的均匀采样的6 spp质量相当。因此，在没有自适应采样的情况下，额外需要50％均匀分布的样本以实现相同的质量。
 <br><br>
 
-# 2. 精读论文，理解模型
+# 2. 精读论文，理解模型a
