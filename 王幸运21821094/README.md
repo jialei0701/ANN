@@ -40,3 +40,19 @@ distributed samples are required to achieve equal quality without adaptive sampl
   
   ## 网络结构
   ![avator](https://github.com/jialei0701/ANN/blob/master/%E7%8E%8B%E5%B9%B8%E8%BF%9021821094/cnn.png)
+ <br> 这两个CNN都用了 encoder-decoder的结构，该网络共包含5个encoder和decoder单元，中间用bottleneck隔开。每个encoder由两个卷积层和1个max pooing层组成;每个decoder有一个 upsampling层和两个卷积层组成。卷积层的大小都是3X3.在所有的卷积层后面（除了最后一个）都用了ReLU激活函数。
+ 
+ ## 训练这两个网络
+ 通过以端到端的方式，最小化去燥图像与真实图像之间的误差来训练这两个网络。
+ ### 梯度
+  ![avator](https://github.com/jialei0701/ANN/blob/master/%E7%8E%8B%E5%B9%B8%E8%BF%9021821094/gradient1%20.png)
+  <br>h是额外的样本点，用于数值微分。Is+h是由Is和Ih所获得的。
+  <br>但是这个梯度有很大噪音，所以下面通过大量的h spp的图像来计算梯度。
+  ![avator](https://github.com/jialei0701/ANN/blob/master/%E7%8E%8B%E5%B9%B8%E8%BF%9021821094/gradient2.png)
+  <br>然后把右边的代入进去，可以得到:<br>
+   ![avator](https://github.com/jialei0701/ANN/blob/master/%E7%8E%8B%E5%B9%B8%E8%BF%9021821094/gradient3.png)
+   <br>然后把累加符号代入到分子上，又可以得到：<br>
+   ![avator](https://github.com/jialei0701/ANN/blob/master/%E7%8E%8B%E5%B9%B8%E8%BF%9021821094/gradient4.png)
+   <br>当N->∞，h=0,I∞表示地面真实图像，最终得到：<br>
+    ![avator](https://github.com/jialei0701/ANN/blob/master/%E7%8E%8B%E5%B9%B8%E8%BF%9021821094/gradient6.png)
+   
