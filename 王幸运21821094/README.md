@@ -5,9 +5,7 @@
 电话：15956751830<br>
 # 1. 选择论文
 **Title:**<br>
-[Deep Adaptive Sampling for Low Sample Count Rendering]
-(https://github.com/jialei0701/ANN/blob/master/%E7%8E%8B%E5%B9%B8%E8%BF%9021821094/01Deep%20Adaptive%20Sampling%20for%20Low%20Sample%20Count%20Rendering-%E5%B7%B2%E8%BD%AC%E6%A1%A3.docx)
-
+[Deep Adaptive Sampling for Low Sample Count Rendering](https://github.com/jialei0701/ANN/blob/master/%E7%8E%8B%E5%B9%B8%E8%BF%9021821094/01Deep%20Adaptive%20Sampling%20for%20Low%20Sample%20Count%20Rendering-%E5%B7%B2%E8%BD%AC%E6%A1%A3.docx)<br><br>
 **Abstract:**<br>
 Recently, deep learning approaches have proven successful at removing noise from Monte Carlo (MC) rendered images at extremely
 low sampling rates, e.g., 1-4 samples per pixel (spp). While these methods provide dramatic speedups, they operate on uniformly
