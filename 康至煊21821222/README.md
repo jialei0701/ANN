@@ -8,9 +8,9 @@
 ## Timeline
   Task | Date | Done
   ------- | ------- | :-------:
-  1.选择论文 | Mar.14 |   T
-  2.精读论文 | Mar.21 | 
-  3.复现论文 | Apr.04 |
+  1.选择论文 | Mar.14 | T
+  2.精读论文 | Mar.21 | T
+  3.复现论文 | Apr.04 | T
   4.完成对比试验 | Apr.11 | 
   5.形成报告 | Apr.18 |
 *****
@@ -26,4 +26,203 @@
 #### 数据集: ImageNet
 #### 模型架构
 ![model Architecture](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/%E8%AE%BA%E6%96%87%E5%9B%BE%E7%89%871.JPG)
+- preparation network : 当需隐藏图像小于载体图像时，加大需隐藏图像，从而将bit分布在NxN（载体图像大小）对图像进行编码
+- main network : 以载体图像和需隐藏图像做为输入，输出隐藏后的容器图像（container image）
+- reveal network : 接收container image，移除载体图像，揭示隐藏图像
+#### 网络细节
+- main network和reveal network为5层卷积层，每层65 filters (50 3x3 filters, 10 4x4 filters and 5 5x5 filters)
+- preparation network为2层相同结构的卷积层
+#### 结果
+![result](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/%E8%AE%BA%E6%96%87%E5%9B%BE%E7%89%872.JPG)
 
+## 3.复现论文
+[dataset](https://tiny-imagenet.herokuapp.com/)
+### 创建数据集
+```
+def load_dataset_small(num_images_per_class_train=10, num_images_test=500):
+    #Loads training and test datasets, from Tiny ImageNet Visual Recogition Challenge.
+
+    X_train = []
+    X_test = []
+    
+    # Create training set.
+    for c in os.listdir(TRAIN_DIR):
+        c_dir = os.path.join(TRAIN_DIR, c, 'images')
+        c_imgs = os.listdir(c_dir)
+        random.shuffle(c_imgs)
+        for img_name_i in c_imgs[0:num_images_per_class_train]:
+            img_i = image.load_img(os.path.join(c_dir, img_name_i))
+            x = image.img_to_array(img_i)
+            X_train.append(x)
+    random.shuffle(X_train)
+    
+    # Create test set.
+    test_dir = os.path.join(TEST_DIR, 'images')
+    test_imgs = os.listdir(test_dir)
+    random.shuffle(test_imgs)
+    for img_name_i in test_imgs[0:num_images_test]:
+        img_i = image.load_img(os.path.join(test_dir, img_name_i))
+        x = image.img_to_array(img_i)
+        X_test.append(x)
+
+    # Return train and test data as numpy arrays.
+    return np.array(X_train), np.array(X_test)
+```
+### 构建模型
+```
+def make_model(input_size):
+    input_S = Input(shape=(input_size))
+    input_C= Input(shape=(input_size))
+    
+    encoder = make_encoder(input_size)
+    
+    decoder = make_decoder(input_size)
+    decoder.compile(optimizer='adam', loss=rev_loss)
+    decoder.trainable = False
+    
+    output_Cprime = encoder([input_S, input_C])
+    output_Sprime = decoder(output_Cprime)
+
+    autoencoder = Model(inputs=[input_S, input_C],
+                        outputs=concatenate([output_Sprime, output_Cprime]))
+    autoencoder.compile(optimizer='adam', loss=full_loss)
+    
+    return encoder, decoder, autoencoder
+```
+#### 编码层
+```
+def make_encoder(input_size):
+    input_S = Input(shape=(input_size))
+    input_C= Input(shape=(input_size))
+
+    # Preparation Network
+    x3 = Conv2D(50, (3, 3), strides = (1, 1), padding='same', activation='relu', name='conv_prep0_3x3')(input_S)
+    x4 = Conv2D(10, (4, 4), strides = (1, 1), padding='same', activation='relu', name='conv_prep0_4x4')(input_S)
+    x5 = Conv2D(5, (5, 5), strides = (1, 1), padding='same', activation='relu', name='conv_prep0_5x5')(input_S)
+    x = concatenate([x3, x4, x5])
+    
+    x3 = Conv2D(50, (3, 3), strides = (1, 1), padding='same', activation='relu', name='conv_prep1_3x3')(x)
+    x4 = Conv2D(10, (4, 4), strides = (1, 1), padding='same', activation='relu', name='conv_prep1_4x4')(x)
+    x5 = Conv2D(5, (5, 5), strides = (1, 1), padding='same', activation='relu', name='conv_prep1_5x5')(x)
+    x = concatenate([x3, x4, x5])
+    
+    x = concatenate([input_C, x])
+    
+    # Hiding network
+    x3 = Conv2D(50, (3, 3), strides = (1, 1), padding='same', activation='relu', name='conv_hid0_3x3')(x)
+    x4 = Conv2D(10, (4, 4), strides = (1, 1), padding='same', activation='relu', name='conv_hid0_4x4')(x)
+    x5 = Conv2D(5, (5, 5), strides = (1, 1), padding='same', activation='relu', name='conv_hid0_5x5')(x)
+    x = concatenate([x3, x4, x5])
+    
+    x3 = Conv2D(50, (3, 3), strides = (1, 1), padding='same', activation='relu', name='conv_hid1_3x3')(x)
+    x4 = Conv2D(10, (4, 4), strides = (1, 1), padding='same', activation='relu', name='conv_hid1_4x4')(x)
+    x5 = Conv2D(5, (5, 5), strides = (1, 1), padding='same', activation='relu', name='conv_hid1_5x5')(x)
+    x = concatenate([x3, x4, x5])
+    
+    x3 = Conv2D(50, (3, 3), strides = (1, 1), padding='same', activation='relu', name='conv_hid2_3x3')(x)
+    x4 = Conv2D(10, (4, 4), strides = (1, 1), padding='same', activation='relu', name='conv_hid2_4x4')(x)
+    x5 = Conv2D(5, (5, 5), strides = (1, 1), padding='same', activation='relu', name='conv_hid2_5x5')(x)
+    x = concatenate([x3, x4, x5])
+    
+    x3 = Conv2D(50, (3, 3), strides = (1, 1), padding='same', activation='relu', name='conv_hid3_3x3')(x)
+    x4 = Conv2D(10, (4, 4), strides = (1, 1), padding='same', activation='relu', name='conv_hid3_4x4')(x)
+    x5 = Conv2D(5, (5, 5), strides = (1, 1), padding='same', activation='relu', name='conv_hid3_5x5')(x)
+    x = concatenate([x3, x4, x5])
+    
+    x3 = Conv2D(50, (3, 3), strides = (1, 1), padding='same', activation='relu', name='conv_hid4_3x3')(x)
+    x4 = Conv2D(10, (4, 4), strides = (1, 1), padding='same', activation='relu', name='conv_hid4_4x4')(x)
+    x5 = Conv2D(5, (5, 5), strides = (1, 1), padding='same', activation='relu', name='conv_hid5_5x5')(x)
+    x = concatenate([x3, x4, x5])
+    
+    output_Cprime = Conv2D(3, (3, 3), strides = (1, 1), padding='same', activation='relu', name='output_C')(x)
+    
+    return Model(inputs=[input_S, input_C],
+                 outputs=output_Cprime,
+                 name = 'Encoder')
+```
+#### 解码层
+```
+def make_decoder(input_size, fixed=False):
+    
+    # Reveal network
+    reveal_input = Input(shape=(input_size))
+    
+    # Adding Gaussian noise with 0.01 standard deviation.
+    input_with_noise = GaussianNoise(0.01, name='output_C_noise')(reveal_input)
+    
+    x3 = Conv2D(50, (3, 3), strides = (1, 1), padding='same', activation='relu', name='conv_rev0_3x3')(input_with_noise)
+    x4 = Conv2D(10, (4, 4), strides = (1, 1), padding='same', activation='relu', name='conv_rev0_4x4')(input_with_noise)
+    x5 = Conv2D(5, (5, 5), strides = (1, 1), padding='same', activation='relu', name='conv_rev0_5x5')(input_with_noise)
+    x = concatenate([x3, x4, x5])
+    
+    x3 = Conv2D(50, (3, 3), strides = (1, 1), padding='same', activation='relu', name='conv_rev1_3x3')(x)
+    x4 = Conv2D(10, (4, 4), strides = (1, 1), padding='same', activation='relu', name='conv_rev1_4x4')(x)
+    x5 = Conv2D(5, (5, 5), strides = (1, 1), padding='same', activation='relu', name='conv_rev1_5x5')(x)
+    x = concatenate([x3, x4, x5])
+    
+    x3 = Conv2D(50, (3, 3), strides = (1, 1), padding='same', activation='relu', name='conv_rev2_3x3')(x)
+    x4 = Conv2D(10, (4, 4), strides = (1, 1), padding='same', activation='relu', name='conv_rev2_4x4')(x)
+    x5 = Conv2D(5, (5, 5), strides = (1, 1), padding='same', activation='relu', name='conv_rev2_5x5')(x)
+    x = concatenate([x3, x4, x5])
+    
+    x3 = Conv2D(50, (3, 3), strides = (1, 1), padding='same', activation='relu', name='conv_rev3_3x3')(x)
+    x4 = Conv2D(10, (4, 4), strides = (1, 1), padding='same', activation='relu', name='conv_rev3_4x4')(x)
+    x5 = Conv2D(5, (5, 5), strides = (1, 1), padding='same', activation='relu', name='conv_rev3_5x5')(x)
+    x = concatenate([x3, x4, x5])
+    
+    x3 = Conv2D(50, (3, 3), strides = (1, 1), padding='same', activation='relu', name='conv_rev4_3x3')(x)
+    x4 = Conv2D(10, (4, 4), strides = (1, 1), padding='same', activation='relu', name='conv_rev4_4x4')(x)
+    x5 = Conv2D(5, (5, 5), strides = (1, 1), padding='same', activation='relu', name='conv_rev5_5x5')(x)
+    x = concatenate([x3, x4, x5])
+    
+    output_Sprime = Conv2D(3, (3, 3), strides = (1, 1), padding='same', activation='relu', name='output_S')(x)
+    
+    if not fixed:
+        return Model(inputs=reveal_input,
+                     outputs=output_Sprime,
+                     name = 'Decoder')
+    else:
+        return Container(inputs=reveal_input,
+                         outputs=output_Sprime,
+                         name = 'DecoderFixed')
+```
+### 训练
+```
+NB_EPOCHS = 1000
+BATCH_SIZE = 32
+
+m = input_S.shape[0]
+loss_history = []
+for epoch in range(NB_EPOCHS):
+    np.random.shuffle(input_S)
+    np.random.shuffle(input_C)
+    
+    t = tqdm(range(0, input_S.shape[0], BATCH_SIZE),mininterval=0)
+    ae_loss = []
+    rev_loss = []
+    for idx in t:
+        
+        batch_S = input_S[idx:min(idx + BATCH_SIZE, m)]
+        batch_C = input_C[idx:min(idx + BATCH_SIZE, m)]
+        
+        C_prime = encoder_model.predict([batch_S, batch_C])
+        
+        ae_loss.append(autoencoder_model.train_on_batch(x=[batch_S, batch_C],
+                                                   y=np.concatenate((batch_S, batch_C),axis=3)))
+        rev_loss.append(reveal_model.train_on_batch(x=C_prime,
+                                              y=batch_S))
+        
+        # Update learning rate
+        K.set_value(autoencoder_model.optimizer.lr, lr_schedule(epoch))
+        K.set_value(reveal_model.optimizer.lr, lr_schedule(epoch))
+        
+        t.set_description('Epoch {} | Batch: {:3} of {}. Loss AE {:10.2f} | Loss Rev {:10.2f}'.format(epoch + 1, idx, m, np.mean(ae_loss), np.mean(rev_loss)))
+    loss_history.append(np.mean(ae_loss))
+```
+![train_process](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/result/train_process.JPG)
+### 保存模型
+`autoencoder_model.save_weights('model.hdf5')`
+### 完整代码
+[hiding_image](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/hiding_image.py)
+### 复现结果
+![result_show](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/result/result_show.JPG)

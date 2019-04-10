@@ -11,7 +11,7 @@
 | :-- | :-: | :-: |
 | 1. 选择论文 | Mar. 14 | &radic; |
 | 2. 精读论文，理解模型 | Mar. 21 | &radic;  |
-| 3. 复现论文 | Apr. 4 |  |
+| 3. 复现论文 | Apr. 4 | &radic; |
 | 4. 完成对比实验 | Apr. 11 |  |
 | 5. 形成最后报告 | Apr. 18 |  | 
 
@@ -32,9 +32,12 @@
 [[YOLO v3-(arxiv)2018] YOLOv3: An Incremental Improvement](https://arxiv.org/pdf/1804.02767)  
 
 ## 2. 精读论文，理解模型
+
+查看阶段报告:[Tex](report2-21821275.tex)，[PDF](report2-21821275.pdf)
+
 - 2.1 目标检测问题模型和求解思路
     目标检测问题要求检测到某类物体在图像中是否存在，并且给出其所在位置的包围框（Bounding Box）。
-    ![img](fig_problem_model.jpg)
+    ![img](figs/fig_problem_model.jpg)
     目标检测问题的模型分为两个阶段，即目标定位（确定目标所在位置，回归问题）
 和目标分类（确定候选框内的目标所属类别）。
 
@@ -44,11 +47,18 @@
 
     对于常规方法的改进，通常可以从这两个阶段着手。如针对目标定位的改进，有RCNN的Selective Search，Fast RCNN的Region Proposal，或直接将其看成一个回归问题。针对分类器的改进，则通常使用更高层次或更复杂的特征，如使用CNN提取的特征。但是根据包围框候选策略得到的包围框通常不会完全贴合目标的边缘，所以很多方案会进行Bounding Box Regression（位置精修），来得到更加准确的包围框。
     
+    检测结果后处理（Post Processing）：非极大值抑制（Non-Maximum Suppression，NMS）
+    滑动窗口经提取特征，经分类器分类识别后，每个窗口都会得到一个分数。但是滑动窗口会导致很多窗口与其他窗口存在包含或者大部分交叉的情况。这时就需要用到NMS来选取那些邻域里分数最高（是目标的概率最大），并且抑制那些分数低的窗口。
+    NMS在计算机视觉领域有着非常重要的应用，如视频目标跟踪、数据挖掘、3D重建、目标识别以及纹理分析等。
+    常用的IOU阈值是 0.3 ~ 0.5
+
 - 2.2 评估标准
     常见的分类问题，通常使用混淆矩阵来表示分类的结果，即每个类别被分类的结果与真实结果的对比，如下图：
-    ![img](fig_confusion_matrix.png)
+    ![img](figs/fig_confusion_matrix.png)
+
     对于二分类的混淆矩阵，可以计算召回率（Recall）、精确率（Precision），前者是真实样本被检出的概率，后者则是检出的准确率。
-    ![img](fig_precision_recall.jpg)
+    ![img](figs/fig_precision_recall.jpg)
+    
     在此基础上，还可以计算PR曲线，ROC曲线，F指标等。
 
     以上是针对分类算法的判别标准，评价一个检测算法时，主要看两个指标，即是否正确的预测了框内物体的类别；预测的框和人工标注框的重合程度，故需要以下两个评价标准：
@@ -58,16 +68,42 @@
 - 2.3 [[YOLO v1-CVPR2016] You Only Look Once: Unified, Real-Time Object Detection](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf)  
     - 2.3.1 方法
         单阶段（one-stage）目标检测。YOLO将目标检测重新定义为单个回归问题，从图像像素直接到边界框坐标和类概率。
+        ![img](figs/fig_structure_yolov1.PNG)
     - 2.3.2 特色
-    (1)将输入图像的大小调整为448×448；
+    (1)在预训练的时候用的是224*224的输入，一般预训练的分类模型都是在ImageNet数据集上进行的，然后在检测的时候采用448*448的输入
     (2)在图像上运行单个卷积网络；
-    (3)根据模型的置信度对得到的检测进行阈值化。
-    
+    (3)根据模型的置信度对得到的检测进行阈值化。(输出为BB+类概率)
+    ![img](figs/fig_model_yolov1.PNG)
     - 2.3.3 结果
-    ![img](fig_result_yolov1.PNG）
+    ![img](figs/fig_result_yolov1.PNG)
+
+- 2.4 [[YOLO v2-CVPR2017] YOLO9000: Better, Faster, Stronger](http://openaccess.thecvf.com/content_cvpr_2017/papers/Redmon_YOLO9000_Better_Faster_CVPR_2017_paper.pdf)  
+    - 2.4.1 方法
+    同上。
+    - 2.4.2 特色
+    (1)Batch Normalization
+    (2)High Resolution Classifier：预训练分成两步：先用224*224的输入从头开始训练网络，大概160个epoch，然后再将输入调整到448*448，再训练10个epoch。最后再在检测的数据集上fine-tuning，也就是检测的时候用448*448的图像作为输入就可以顺利过渡了。
+    (3)Convolutional With Anchor Boxes
+    ![img](figs/fig_anchor_yolov2.PNG)
+    (4)Dimension Clusters：Faster R-CNN中anchor box的大小和比例是按经验设定的，然后网络会在训练过程中调整anchor box的尺寸。
+如果一开始就能选择到合适尺寸的anchor box，那肯定可以帮助网络更好地预测。所以作者采用k-means的方式对训练集的bounding boxes做聚类，试图找到合适的anchor box。
+    ![img](figs/fig_backbone_yolov2.PNG)
+    - 2.4.3 结果
+    ![img](figs/fig_result_yolov2.PNG)
+
+- 2.5 [[YOLO v3-(arxiv)2018] YOLOv3: An Incremental Improvement](https://arxiv.org/pdf/1804.02767)    
+    - 2.5.1 方法
+    同上。
+    - 2.5.2 特色
+    (1)借鉴了残差网络结构，形成更深的网络层次。
+    (2)9种尺度的先验框，mAP以及对小物体的检测效果有一定的提升。
+    ![img](figs/fig_backbone_yolov3.PNG)
+    ![img](figs/fig_model_yolov3.jpg)
+    - 2.5.3 结果
+    ![img](figs/fig_result_yolov3.PNG)
 
 ## 3. 复现论文
-TODO
+查看阶段报告:[Tex](report3-21821275.tex)，[PDF](report3-21821275.pdf)
 
 ## 4. 完成对比实验
 TODO

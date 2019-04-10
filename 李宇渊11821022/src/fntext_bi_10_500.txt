@@ -1,0 +1,45 @@
+macro precision: 0.93013
+   category #0 precision: 0.92526
+   category #1 precision: 0.98474
+   category #2 precision: 0.90158
+   category #3 precision: 0.90895
+macro precision: 0.92934
+   category #0 precision: 0.92368
+   category #1 precision: 0.98211
+   category #2 precision: 0.90053
+   category #3 precision: 0.91105
+macro precision: 0.93039
+   category #0 precision: 0.92789
+   category #1 precision: 0.98526
+   category #2 precision: 0.90316
+   category #3 precision: 0.90526
+macro precision: 0.93026
+   category #0 precision: 0.92474
+   category #1 precision: 0.98632
+   category #2 precision: 0.90053
+   category #3 precision: 0.90947
+macro precision: 0.92987
+   category #0 precision: 0.92526
+   category #1 precision: 0.98579
+   category #2 precision: 0.89895
+   category #3 precision: 0.90947
+macro precision: 0.93053
+   category #0 precision: 0.92947
+   category #1 precision: 0.98526
+   category #2 precision: 0.89895
+   category #3 precision: 0.90842
+macro precision: 0.92974
+   category #0 precision: 0.92053
+   category #1 precision: 0.98684
+   category #2 precision: 0.90158
+   category #3 precision: 0.91000
+macro precision: 0.93026
+   category #0 precision: 0.92632
+   category #1 precision: 0.98368
+   category #2 precision: 0.89579
+   category #3 precision: 0.91526
+macro precision: 0.92855
+   category #0 precision: 0.92579
+   category #1 precision: 0.98421
+   category #2 precision: 0.89000
+   category #3 precision: 0.91421

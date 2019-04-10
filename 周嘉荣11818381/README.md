@@ -9,9 +9,9 @@
 | :--:| :--: | :--: |
 | 1.选择论文 | Mar.14 | Y |
 | 2.精读论文 | Mar.21 | Y |
-| 3.复现论文 | Apr.4 | N
-| 4. 完成实验 | Apr.11 | N
-| 5.撰写报告 | Apr.18 | N
+| 3.复现论文 | Apr.4 | Y |
+| 4. 完成实验 | Apr.11 | N |
+| 5.撰写报告 | Apr.18 | N |
 
 ### 选择论文
 [Bridging the Gap Between 2D and 3D Organ Segmentation with Volumetric Fusion Net](Bridging.pdf)
@@ -31,6 +31,7 @@ verify its superiority in segmentation accuracy and stability over existing 2D a
 4.在公开数据库或者自己的数据库进行方法学测试，发现使用VFN这种方法进行腹部器官分割的准确率都优于其他的2D或者3D分割方法。
 
 ### 复现论文
+> 本文的代码复现详见[/code/](https://github.com/jialei0701/ANN/tree/master/%E5%91%A8%E5%98%89%E8%8D%A311818381/code)文件夹，复现的过程及运行我复现代码所需要的操作详见[/code/README.md](https://github.com/jialei0701/ANN/tree/master/%E5%91%A8%E5%98%89%E8%8D%A311818381/code/README.md)。
 
 ### 完成实验
 
