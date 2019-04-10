@@ -52,15 +52,51 @@ Task|Due|Done
 上面的式子不再是纯粹的交叉熵，归一化的评分可以理解为权重，评分越高的误分类到0的惩罚越高，反之，评分越低无分类到1的惩罚也越高，这符合我们的认知，因此该转化是合理的。
 
 得到误差之后，便可以分别反向传播回神经网络，用以更新权重信息
-#### 结果
-![result](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/result.png)
+
 #### 总结
 总的来说，该文章的贡献如下：
 1. 利用DMF将显示反馈输入中包含的用户和物品信息非线性地映射到了一个低维空间
 2. 提出一种既包含显式反馈又包含隐式反馈的损失函数
 3. 在多个数据集上跑出来的效果都非常可观
 ### 复现论文
+LFM虽然可以有效利用隐式反馈来学习到用户和物品的隐语义表示；然而LFM学习到的往往是一种线性的浅层的特征。基于此，我们利用多层感知机来获得用户和物品更深层次的特征，提出了多层隐语义模型（multi- latent factor model，MLFM）
+
+**MLFM架构设想**
+
+![MLFM-arch](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/MLFM.png)
+
+我们将 LFM 算法以及 MLFM 算法进行融合，得到一种结合了用户与物品线性以及非线性特征的混合隐语义模型（fusion latent factor model，FLFM）
+
+**FLFM架构设想**
+
+![FLFM-arch](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/FLFM.png)
+
+### 模型仿真验证
+
+数据集|用户数目|物品数目|评分数目|数据稀疏度
+-|:-:|:-:|:-:|:-:
+Movielens|6040|3952|1000209|95.81% 
+Pinterest|55187|9916|1500809|99.73% 
+
+![visualization](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/visualization.png)
+
+![LOSS](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/LossComp.png)
 
 ### 完成实验
+#### 评价标准
+本次top-N推荐的性能由命中率（hit ration，HR）以及归一化折损累积增益（normalized discounted cumulative gain, NDCG）来进行衡量。 其中HR是一种召回率相关的指标，假设我们取推荐排名前K的物品作为推荐列表，那么HR就直观地衡量用户下一个交互的物品是否出现在推荐列表中。
+其公式为： 
+
+![HR](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/HR.png)
+
+其中|GT|是所有的测试集合，而分子则是每个用户前K个中属于测试集合的个数的总和。 
+
+而NDCG则是一种准确率相关的指标，衡量的是排序的质量。直观的来讲，命中物品在推荐列表中所处的位置越靠前，那么这一次推荐获得的分数也越高。
+其计算公式为：
+
+![NDCG](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/NDCG.png)
+
+#### 实验结果
+![result-16](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/result-16.png)
 
 ### 撰写报告
