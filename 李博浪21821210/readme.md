@@ -37,7 +37,59 @@
 
 
 ### 复现论文
+#### random surfing
+```python
+ def random_surfing(matrix,alpha=0.98,steps=10):
+    nodes_count=len(matrix)
+    p0=np.eye(nodes_count,dtype='float64')
+    result=np.zeros((nodes_count,nodes_count),dtype='float64')
+    p=p0.copy()
+    for i in range(steps):
+        p=alpha*np.dot(p,matrix)+(1-alpha)*p0
+        result=result+p
+    #result=result/result.sum(axis=1).reshape(-1,1)
+    result=scale_sim_mat(result)
+    return result
+```
+
+#### PPMI
+```python
+def get_PPMI(matrix):
+    
+    node_counts=len(matrix)
+    D=matrix.sum()
+    row_sum=matrix.sum(axis=1).reshape(-1,1)
+    column_sum=matrix.sum(axis=0).reshape(1,-1)
+    PPMI=np.log(np.divide(D*matrix,np.dot(row_sum,column_sum)))
+    PPMI[np.isnan(PPMI)]=0
+    PPMI[np.isinf(PPMI)] = 0.0
+    PPMI[np.isneginf(PPMI)] = 0.0
+    PPMI[PPMI<0]=0
+    return PPMI
+```
+#### train
+```python
+def train(data,hidden_layer=3,hidden_neurons=[128,64,32]):
+    input_layer=Input(shape=(data.shape[1],))
+    encoder=noise.GaussianNoise(0.2)(input_layer)
+    for i in range(hidden_layer):
+        encoder=Dense(hidden_neurons[i],activation='relu')(encoder)
+        encoder=noise.GaussianNoise(0.2)(encoder)
+    decoder=Dense(hidden_neurons[-2],activation='relu')(encoder)
+    for j in range(hidden_layer-3,-1,-1):
+        decoder=Dense(hidden_neurons[j],activation='relu')(decoder)
+    decoder=Dense(data.shape[1],activation='sigmoid')(decoder)
+
+    sdae=Model(input=input_layer,output=decoder)
+    sdae.summary()
+    sdae.compile(optimizer='adadelta',loss='mse')
+    sdae.fit(data,data,steps_per_epoch=20,epochs=10)
+    return Model(input=input_layer,output=encoder)
+        
+
+```
+
 
 ### 完成实验
-
+![embedding](./embedding/png)
 ### 撰写报告
