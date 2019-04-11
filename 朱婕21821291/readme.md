@@ -21,5 +21,5 @@ Thomas N. Kipf, Max Welling, Semi-Supervised Classification with Graph Convoluti
 Please look at gcn
 ### 完成实验
 output
-![output](https://github.com/jialei0701/ANN/edit/master/朱婕21821291/tSNE1.png)
+![output](https://github.com/jialei0701/ANN/blob/master/%E6%9C%B1%E5%A9%9521821291/tSNE1.PNG)
 ### 撰写报告
