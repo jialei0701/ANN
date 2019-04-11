@@ -62,4 +62,4 @@
 实际上只是根据每个像素点，以及这个点和它周围的点的相关关系（这个相关关系由神经网络的feature map捕捉），调整这个像素点的值，使之在一个局部范围内，具有与风格图的局部特征相似的纹理。实际上并不具备认知画作表达的语义的能力。
 
 ### 模型仿真
-![](.results/modelSimulation/modelSimulation.gif)
+![](./results/modelSimulation/modelSimulation.gif)
