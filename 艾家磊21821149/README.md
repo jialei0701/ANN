@@ -1,5 +1,6 @@
 # 生物智能算法 神经网络组
 
+# 因为 github markdown 不支持LaTex公式，报告请参见 ![README.pdf](README.pdf)
 ## 个人信息
 
 姓名：艾家磊 
