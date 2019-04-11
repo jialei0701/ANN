@@ -63,3 +63,7 @@
 
 ### 模型仿真
 ![](./results/modelSimulation/modelSimulation.gif)
+
+
+### loss仿真
+![](./results/modelSimulation/loss.jpg)
