@@ -56,6 +56,8 @@ Embedding Dim|Label|Ave Acc|Embedding Dim|Label|Ave Acc|
 400|#2|0.900737|800|#2|0.894947
 400|#3|0.909895|800|#3|0.911211
 
+![200_10](img/batch200epoch10.JPG)
+
 * Parameter: batch size = 300, epoch = 10  
 * Result:
 
