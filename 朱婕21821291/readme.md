@@ -8,7 +8,7 @@ Task|Due|Done
 1.选择论文|Mar.14|T
 2.精读论文|Mar.21|T
 3.复现论文|Apr.4|T
-4.完成实验|Apr.11|
+4.完成实验|Apr.11|T
 5.撰写报告|Apr.18|  
 ### 选择论文
 Thomas N. Kipf, Max Welling, Semi-Supervised Classification with Graph Convolutional Networks (ICLR 2017)
@@ -20,5 +20,6 @@ Thomas N. Kipf, Max Welling, Semi-Supervised Classification with Graph Convoluti
 ### 复现论文
 Please look at gcn
 ### 完成实验
-
+output
+![output](https://github.com/jialei0701/ANN/edit/master/朱婕21821291/tSNE1.png)
 ### 撰写报告
