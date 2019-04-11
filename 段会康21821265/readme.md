@@ -13,7 +13,7 @@
 |---|---|---|
 |选择论文|Mar.14|√|
 |精度论文|Mar.21|√|
-|复现论文|Apr.4| |
+|复现论文|Apr.4|√|
 |完成对比实验|Apr.11| |
 |完成报告|Apr.18| |
 
@@ -46,7 +46,7 @@ NIST SRE10 10 s–10 s condition) justifies the effectiveness of our proposed sp
 
 见：精读论文.pdf
 ## 复现论文：
-
+见：论文实现.pdf
 
 ## 对比试验：
 
