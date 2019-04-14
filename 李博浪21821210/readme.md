@@ -37,7 +37,6 @@
 
 ### 模型结构与实验结果
 ![model](./model.png)
-![clustering](./clustering.png)
 ![visual](./visual.png)
 
 ### 复现论文
@@ -96,4 +95,5 @@ def train(data,hidden_layer=3,hidden_neurons=[128,64,32]):
 
 ### 完成实验
 ![embedding](./embedding.png)
-### 撰写报告
+
+![clustering](./clustering.png)
