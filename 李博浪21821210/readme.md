@@ -35,9 +35,10 @@
 3.利用堆叠去噪自编码器来学习节点的低维表示  
 将PPMI矩阵中节点对应的向量作为输入,放入SDAE里,获取节点的低维向量表示.并使用逐层的贪婪预训练.最终获得节点的低维向量表示
 
-### 模型结构
+### 模型结构与实验结果
 ![model](./model.png)
-
+![clustering](./clustering.png)
+![visual](./visual.png)
 
 ### 复现论文
 #### random surfing
