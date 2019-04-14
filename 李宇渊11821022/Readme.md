@@ -9,7 +9,7 @@ Task|Due|Done
 1.选择论文|Mar.14|T
 2.精读论文|Mar.21|T
 3.复现论文|Apr.4|T
-4.完成实验|Apr.11|
+4.完成实验|Apr.11|T
 5.撰写报告|Apr.18|  
 ### 选择论文
 [FNText: A Fast Neural Model for Efficient Text Classification](Fntext.pdf)  
@@ -56,6 +56,8 @@ Embedding Dim|Label|Ave Acc|Embedding Dim|Label|Ave Acc|
 400|#2|0.900737|800|#2|0.894947
 400|#3|0.909895|800|#3|0.911211
 
+![200_10](img/batch200epoch10.JPG)
+
 * Parameter: batch size = 300, epoch = 10  
 * Result:
 
@@ -71,6 +73,8 @@ Embedding Dim|Label|Ave Acc|Embedding Dim|Label|Ave Acc|
 400|#1|0.985106|800|#1|0.983790
 400|#2|0.899420|800|#2|0.896999
 400|#3|0.909947|800|#3|0.913212
+
+![300_10](img/batch300epoch10.JPG)
 
 * Parameter: batch size = 400, epoch = 10  
 * Result:
@@ -88,6 +92,8 @@ Embedding Dim|Label|Ave Acc|Embedding Dim|Label|Ave Acc|
 400|#2|0.901843|800|#2|0.903212
 400|#3|0.909475|800|#3|0.910262
 
+![400_10](img/batch400epoch10.JPG)
+
 * Parameter: batch size = 500, epoch = 10  
 * Result:
 
@@ -103,6 +109,8 @@ Embedding Dim|Label|Ave Acc|Embedding Dim|Label|Ave Acc|
 400|#1|0.985422|800|#1|0.984892
 400|#2|0.901104|800|#2|0.897156
 400|#3|0.908263|800|#3|0.912473
+
+![500_10](img/batch500epoch10.JPG)
 
 * Parameter: batch size = 600, epoch = 10  
 * Result:
@@ -120,6 +128,8 @@ Embedding Dim|Label|Ave Acc|Embedding Dim|Label|Ave Acc|
 400|#2|0.901316|800|#2|0.902420
 400|#3|0.910946|800|#3|0.910369
 
+![600_10](img/batch600epoch10.JPG)
+
 * Parameter: batch size = 700, epoch = 10  
 * Result:
 
@@ -136,6 +146,8 @@ Embedding Dim|Label|Ave Acc|Embedding Dim|Label|Ave Acc|
 400|#2|0.899369|800|#2|0.899106
 400|#3|0.911474|800|#3|0.913789
 
+![700_10](img/batch700epoch10.JPG)
+
 * Parameter: batch size = 800, epoch = 10  
 * Result:
 
@@ -151,4 +163,7 @@ Embedding Dim|Label|Ave Acc|Embedding Dim|Label|Ave Acc|
 400|#1|0.985422|800|#1|0.985106
 400|#2|0.898474|800|#2|0.899684
 400|#3|0.911475|800|#3|0.914472
+
+![800_10](img/batch800epoch10.JPG)
+
 ### 撰写报告
