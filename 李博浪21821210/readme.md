@@ -94,5 +94,5 @@ def train(data,hidden_layer=3,hidden_neurons=[128,64,32]):
 
 
 ### 完成实验
-![embedding](./embedding/png)
+![embedding](./embedding.png)
 ### 撰写报告
