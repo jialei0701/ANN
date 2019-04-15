@@ -70,7 +70,7 @@
 * 2、机器人控制部分：TwinCAT（因不是本文的重点故不详细叙述）
 
 ### 完成实验
-* **MATLAB部分源码：**
+* **MATLAB部分代码：（完整代码见源文件）**
 <pre name="code" class="MATLAB">
 %****************************
 %目的：BP神经网络的主程序，网络结构3-20-6
@@ -153,7 +153,7 @@ end
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E4%B8%87%E6%A2%93%E5%A8%8121832055/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%9B%BE%E5%83%8F.jpg)
 
 * **训练结果可视化：**
-* 神经网络输出结果（都在B=0mm情况下，以α与β为自变量，黑圈为实验数据）
+* 神经网络输出结果（都在B=0mm情况下，以α与β为自变量，黑圈为部分实验数据）
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E4%B8%87%E6%A2%93%E5%A8%8121832055/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C.jpg)
 
 * **拖动示教实验结果：**
