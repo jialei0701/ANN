@@ -37,9 +37,11 @@
 在7自由度实物机械臂上进行实验，通过将神经网络的输出数据与实测扭矩数据进行对比可知，两者基本上是一致的，这说明，采用基于BP-NN神经网络学习的机器人臂重力补偿是可行的。
 
 ### 复现论文
+* **研究背景：**
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E4%B8%87%E6%A2%93%E5%A8%8121832055/%E5%8C%BB%E7%96%97%E7%A9%BF%E5%88%BA%E6%89%8B%E6%9C%AF%E6%9C%BA%E5%99%A8%E4%BA%BA.jpg)
 
-* **研究背景：**
+![avator](https://github.com/jialei0701/ANN/blob/master/%E4%B8%87%E6%A2%93%E5%A8%8121832055/%E7%A9%BF%E5%88%BA%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AE%9E%E7%89%A9%E5%9B%BE.jpg)
+
 本文将在实验室的6自由度医疗穿刺手术机器人（见上图）上对该算法进行复现，该机器人具有XYZ三轴平动自由度、αβ两轴转动自由度及B一轴平动进针自由度，在机器人末端有六维力传感器，采集FxFyFzTxTyTz六轴力与力矩信号，穿刺针上有柔性电缆，其质心难以精确建模估计，但却具有很强的重复规律性，故不适合用传统方法进行重力补偿，因此本文构建了一个轻量级的BP神经网络，估计出不同姿态下六维力信号中的重力分量，实现重力补偿，并在此基础上，结合机器人动力学相关理论，实现机械臂的拖动示教(见下图)。
 
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E4%B8%87%E6%A2%93%E5%A8%8121832055/%E6%8B%96%E5%8A%A8%E7%A4%BA%E6%95%99%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg)
@@ -60,6 +62,8 @@
 * 5、训练算法：梯度下降法，训练5000次
 * 6、损失函数：均方误差MSE
 * 7、动力学方法：牛顿-欧拉法+阻抗控制（控制框图如下，具体算法因不是本文的重点故不详细叙述）
+
+![avator](https://github.com/jialei0701/ANN/blob/master/%E4%B8%87%E6%A2%93%E5%A8%8121832055/%E6%8B%96%E5%8A%A8%E7%A4%BA%E6%95%99%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86%E5%9B%BE.jpg)
 
 * **编程环境：**
 * 1、网络训练部分：MATLAB
@@ -104,13 +108,20 @@ end
 
 * **输出结果：**
 MATLAB运行结果
+![avator](https://github.com/jialei0701/ANN/blob/master/%E4%B8%87%E6%A2%93%E5%A8%8121832055/MATLAB%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.jpg)
+
 损失函数图像
+![avator](https://github.com/jialei0701/ANN/blob/master/%E4%B8%87%E6%A2%93%E5%A8%8121832055/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%9B%BE%E5%83%8F.jpg)
 
 * **训练结果可视化：**
-神经网络输出结果（都在B=0mm情况下，以α与β为自变量的输出结果，黑圈为实验数据）
-
+神经网络输出结果（都在B=0mm情况下，以α与β为自变量，黑圈为实验数据）
+![avator](https://github.com/jialei0701/ANN/blob/master/%E4%B8%87%E6%A2%93%E5%A8%8121832055/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C.jpg)
 
 * **拖动示教实验结果：**
+![avator](https://github.com/jialei0701/ANN/blob/master/%E4%B8%87%E6%A2%93%E5%A8%8121832055/%E6%8B%96%E5%8A%A8%E7%A4%BA%E6%95%99%E5%AE%9E%E9%AA%8C.jpg)
+
+![avator](https://github.com/jialei0701/ANN/blob/master/%E4%B8%87%E6%A2%93%E5%A8%8121832055/%E4%BD%8D%E7%BD%AE%E8%B7%9F%E8%B8%AA%E6%9B%B2%E7%BA%BF%E5%8F%8A%E5%85%B6%E5%8F%97%E5%8A%9B.jpg)
+
 图中上下三部分别为位置跟踪情况，随误差以及此方向所受的接触力。从图中可以看出0.23秒之后机器人已经能够跟踪上给定信号，而且随着时间的延长，跟随误差也渐减小偏向于着时间的延长，跟随误差也渐减小偏向于0，而所受到的接触力基本稳定在0.1N左右，满足设计要求，也间接说明重力补偿的精度很高。
 
 ### 撰写报告
