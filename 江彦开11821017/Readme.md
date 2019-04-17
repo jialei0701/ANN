@@ -62,7 +62,14 @@
      
 #### 3. Implementation
 
-[*Todo*]
+- Network Architecture：为了表述清晰，有两种分类方法
+    1. 使用了不同的backbone：resnet-50，resnet-101，resnext-50，resnext-101；
+
+    2. 使用了不同的head Architecture：Faster RCNN使用resnet50时，从CONV4导出特征供RPN使用，这种叫做ResNet-50-C4
+
+    3. 作者使用除了使用上述这些结构外，还使用了一种更加高效的backbone——FPN
+    
+        ![img](https://github.com/jialei0701/ANN/blob/master/%E6%B1%9F%E5%BD%A6%E5%BC%8011821017/maskrcnn-image/2.png)
 
 #### 4. Experiment
 
