@@ -172,4 +172,6 @@ Embedding Dim|Label|Ave Acc|Embedding Dim|Label|Ave Acc|
 
 ### 实验总结
 #### 模型仿真
+![model](model.jpg)
 #### Loss仿真
+![loss](loss.jpg)
