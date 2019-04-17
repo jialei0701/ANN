@@ -10,7 +10,7 @@ Task|Due|Done
 2.精读论文|Mar.21|T
 3.复现论文|Apr.4|T
 4.完成实验|Apr.11|T
-5.撰写报告|Apr.18|  
+5.实验总结|Apr.18|T  
 ### 选择论文
 [FNText: A Fast Neural Model for Efficient Text Classification](Fntext.pdf)  
 这篇论文利用神经网络进行文本分类。传统方法大多利用CNN和RNN等结构搭建深度神经网络，这篇论文构建了一个简单高效的三层神经网络。该模型训练时间短，计算资源要求低，准确率也较为出色。  
@@ -166,4 +166,8 @@ Embedding Dim|Label|Ave Acc|Embedding Dim|Label|Ave Acc|
 
 ![800_10](img/batch800epoch10.JPG)
 
-### 撰写报告
+* Final parameter: batch size = 600, embedding dim = 600
+
+### 实验总结
+#### 模型仿真
+#### Loss仿真
