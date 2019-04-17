@@ -75,11 +75,17 @@
 使用Fast/Faster相同的超参数，同样适用于Mask RCNN
 
 ● Training:
+
 1、与之前相同，当IoU与Ground Truth的IoU大于0.5时才会被认为有效的RoI，只把有效RoI计算进去。
 
 2、采用image-centric training，图像短边resize到800，每个GPU的mini-batch设置为2，每个图像生成N个RoI，对于backbone的N=64，对于FPN作为backbone的，N=512。作者服务器中使用了8块GPU，所以总的minibatch是16，迭代了160k次，初始lr=0.02，在迭代到120k次时，将lr设定到 lr=0.002，另外学习率的weight_decay=0.0001，momentum = 0.9。如果是resnext，初始lr=0.01,每个GPU的mini-batch是1。
 
 3、RPN的anchors有5种scale，3种ratios。为了方便剥离、如果没有特别指出，则RPN网络是单独训练的且不与Mask RCNN共享权重。但是在本论文中，RPN和Mask R-CNN使用一个backbone，所以他们的权重是共享的。Ablation Experiments 为了方便研究整个网络中哪个部分其的作用到底有多大，需要把各部分剥离开。
+
+● Inference:
+
+在测试时，使用C4 backbone情况下proposal number=300，使用FPN时proposal number=1000。然后在这些proposal上运行bbox预测，接着进行非极大值抑制。mask分支只应用在得分最高的100个proposal上。顺序和train是不同的，但这样做可以提高速度和精度。mask 分支对于每个roi可以预测k个类别，但是我们只要背景和前景两种，所以只用k-th mask，k是根据分类分支得到的类型。然后把k-th mask resize成roi大小，同时使用阈值分割(threshold=0.5)二值化
+
 
 #### 4. Experiment
 
