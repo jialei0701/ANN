@@ -172,6 +172,9 @@ Embedding Dim|Label|Ave Acc|Embedding Dim|Label|Ave Acc|
 
 ### 实验总结
 #### 模型仿真
-![model](model.jpg)
+数据集的词汇量为110000，为方便可视化，下图截取了前1000个单词的embedding结果，可以发现无论是单词与单词之间，还是同一个单词的不同维度之间，embedding的值都是非常不平滑的。  
+![model](model.jpg)  
+为进一步便于观察，下图截取了前10个单词的embedding结果。  
+![model10](model10.jpg)
 #### Loss仿真
 ![loss](loss.jpg)
