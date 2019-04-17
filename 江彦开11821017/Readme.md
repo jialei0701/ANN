@@ -2591,7 +2591,7 @@ def unmold_image(normalized_images, config):
  
 -新实验：将实现的网络Mask RCNN用于肿瘤检测与细胞检测：
 
- ![img](https://github.com/jialei0701/ANN/blob/master/%E6%B1%9F%E5%BD%A6%E5%BC%8011821017/maskrcnn-image/.png)
+ ![img](https://github.com/jialei0701/ANN/blob/master/%E6%B1%9F%E5%BD%A6%E5%BC%8011821017/maskrcnn-image/%E6%A3%80%E6%B5%8B%E7%BB%93%E6%9E%9C.png)
 
  ![img](https://github.com/jialei0701/ANN/blob/master/%E6%B1%9F%E5%BD%A6%E5%BC%8011821017/maskrcnn-image/4.png)
 
