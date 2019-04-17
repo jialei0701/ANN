@@ -86,7 +86,8 @@
 
 在测试时，使用C4 backbone情况下proposal number=300，使用FPN时proposal number=1000。然后在这些proposal上运行bbox预测，接着进行非极大值抑制。mask分支只应用在得分最高的100个proposal上。顺序和train是不同的，但这样做可以提高速度和精度。mask 分支对于每个roi可以预测k个类别，但是我们只要背景和前景两种，所以只用k-th mask，k是根据分类分支得到的类型。然后把k-th mask resize成roi大小，同时使用阈值分割(threshold=0.5)二值化。
 
-CODE
+# CODE
+
 '''
 import os
 import random
