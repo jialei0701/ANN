@@ -2581,9 +2581,12 @@ def unmold_image(normalized_images, config):
     """Takes a image normalized with mold() and returns the original."""
     return (normalized_images + config.MEAN_PIXEL).astype(np.uint8)
 
-#### 4. Experiment
+#### 4. 复现结果与新实验
+-对比FCIS与Mask RCNN
+     FCIS的分割结果中都会出现一条竖着的线(systematic artifacts)，这线主要出现在物体重的部分，作者认为这是FCIS架构的问题，无法解决的。但是在Mask RCNN中没有出现。
 
-[*Todo*]
+ ![img](https://github.com/jialei0701/ANN/blob/master/%E6%B1%9F%E5%BD%A6%E5%BC%8011821017/maskrcnn-image/4.png)
+
 
 #### 5. Final Report
 
