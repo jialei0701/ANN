@@ -50,7 +50,7 @@
 
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/Matrix_M.jpg)
 
-&emsp; 输出为矩阵X，其中X<sub>i,k</sub>表示第k个motif detector在第i个位置的得分；
+&emsp; 输出为矩阵X，其中X<sub>i,k</sub>表示第k个motif detector在第i个位置的得分；D具体表示未提供！
 
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/conv_layer.jpg)
 
@@ -58,7 +58,7 @@
 
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/rectification_layer.jpg)
 
-&emsp; 过滤非高效motif特征
+&emsp; 通过模型训练阶段学习得到mofit得分阈值，过滤非高效motif特征
 
 ### Pooling layer
 
