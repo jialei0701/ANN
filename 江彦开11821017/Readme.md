@@ -13,7 +13,7 @@
 | 2. 精读论文，理解模型 | Mar. 21 | &radic; |  
 | 3. 复现论文 | Apr. 4 | &radic; |  
 | 4. 完成对比实验 | Apr. 11 | &radic; |  
-| 5. 形成最后报告 | Apr. 18 | &radic; |  
+| 5. 总结报告 | Apr. 18 | &radic; |  
 
 
 #### 1. 选择论文
@@ -2582,12 +2582,12 @@ def unmold_image(normalized_images, config):
     return (normalized_images + config.MEAN_PIXEL).astype(np.uint8)
 
 #### 4. 复现结果与新实验
+
 -对比FCIS与Mask RCNN
+
      FCIS的分割结果中都会出现一条竖着的线(systematic artifacts)，这线主要出现在物体重的部分，作者认为这是FCIS架构的问题，无法解决的。但是在Mask RCNN中没有出现。
 
  ![img](https://github.com/jialei0701/ANN/blob/master/%E6%B1%9F%E5%BD%A6%E5%BC%8011821017/maskrcnn-image/4.png)
 
-
-#### 5. Final Report
-
-[*Todo*]
+#### 5. 总结报告
+   在目标检测领域，目前的主要有两种做法，一种是基于RCNN的带有reign proposal的方法；一种是先生成一些默认的检测boxes，再根据网络的学习与loss函数将这些默认的boxes与ground truth不断靠近，以得到一个较好的识别效果，这样的方法诸如YOLO、SSD等，其优势是速度较快但在精度上往往有劣势。本项目主要根据论文实现Mask RCNN，属于第一种做法。通过实现不同的网络layers，复现论文的结果，并进行新的实验，将该方法应用到医学图像处理领域，如肿瘤位置检测、细胞检测等，并将结果展示。
