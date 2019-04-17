@@ -26,6 +26,7 @@
 >Mask RCNN可以看做是一个通用实例分割架构。
 >Mask RCNN以Faster RCNN原型，增加了一个分支用于分割任务。
 >Mask RCNN比Faster RCNN速度慢一些，达到了5fps。
+
 ![img](https://github.com/jialei0701/ANN/blob/master/%E6%B1%9F%E5%BD%A6%E5%BC%8011821017/maskrcnn-image/20181017160239157.png)
 
 >Mask-RCNN 的几个特点：
