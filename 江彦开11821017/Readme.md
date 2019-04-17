@@ -76,7 +76,9 @@
 
 ● Training:
 1、与之前相同，当IoU与Ground Truth的IoU大于0.5时才会被认为有效的RoI，只把有效RoI计算进去。
+
 2、采用image-centric training，图像短边resize到800，每个GPU的mini-batch设置为2，每个图像生成N个RoI，对于backbone的N=64，对于FPN作为backbone的，N=512。作者服务器中使用了8块GPU，所以总的minibatch是16，迭代了160k次，初始lr=0.02，在迭代到120k次时，将lr设定到 lr=0.002，另外学习率的weight_decay=0.0001，momentum = 0.9。如果是resnext，初始lr=0.01,每个GPU的mini-batch是1。
+
 3、RPN的anchors有5种scale，3种ratios。为了方便剥离、如果没有特别指出，则RPN网络是单独训练的且不与Mask RCNN共享权重。但是在本论文中，RPN和Mask R-CNN使用一个backbone，所以他们的权重是共享的。Ablation Experiments 为了方便研究整个网络中哪个部分其的作用到底有多大，需要把各部分剥离开。
 
 #### 4. Experiment
