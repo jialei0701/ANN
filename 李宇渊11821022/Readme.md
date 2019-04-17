@@ -166,7 +166,9 @@ Embedding Dim|Label|Ave Acc|Embedding Dim|Label|Ave Acc|
 
 ![800_10](img/batch800epoch10.JPG)
 
-* Final parameter: batch size = 600, embedding dim = 600
+#### Final parameter
+* batch size = 600
+* embedding dim = 600
 
 ### 实验总结
 #### 模型仿真
