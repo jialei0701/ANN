@@ -65,7 +65,26 @@
 图片迭代变化过程如下所示
 ![](./results/modelSimulation/modelSimulation.gif)
 
-风格图如下所示
+风格图如下所示 
 ![](./results/modelSimulation/style.jpg)
 ### loss仿真
+选取了两对输入参数，均计算了总loss、content项loss、style项loss。从图中可以看出，各项loss均是凸函数，适用凸优化。  
+下面是第一对输入的计算结果：  
+总loss  
 ![](./results/modelSimulation/loss.jpg)
+
+content loss
+![](./results/modelSimulation/content_loss.jpg)
+
+style loss  
+![](./results/modelSimulation/style_loss.jpg)
+
+下面是第二对输入的计算结果：  
+总loss  
+![](./results/modelSimulation/loss2.jpg)
+
+content loss  
+![](./results/modelSimulation/content_loss2.jpg)
+
+style loss  
+![](./results/modelSimulation/style_loss2.jpg)
