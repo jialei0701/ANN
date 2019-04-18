@@ -63,14 +63,25 @@
 
 #### 2.3 特征提取
 
+   <div align=center><img src="./resources/acoustic.png" /></div>
 
+对齐后的music使用librosa提取features。
+i.	Mfcc, mfcc_delta 人声
+ii.	Cqt_chroma 音调
+iii.	Onset_envelope 音量
+iv.	Tempogram 节拍周期
+
+   <div align=center><img src="./resources/temporal.png" /></div>  
+使用librosa.beat.beat_track()函数计算beat，得到以上的temporal feature
+   <div align=center><img src="./resources/skeletons.png" /></div>
 
 #### 2.4 细节阐述
 
 
 ### 3. 复现论文和改进
 
-[*Todo*]
+
+
 
 ### 4. 对比实验
 
