@@ -22,6 +22,7 @@ Please look at gcn
 ### 完成实验
 **模型隐藏层输出降维可视化**
 ![模型隐藏层输出降维可视化](https://github.com/jialei0701/ANN/blob/master/%E6%9C%B1%E5%A9%9521821291/tSNE1.PNG)  
+-------
 **损失函数（交叉熵）可视化**
 ![损失函数（交叉熵）可视化](https://github.com/jialei0701/ANN/blob/master/%E6%9C%B1%E5%A9%9521821291/3d_entropy.png)
 ### 撰写报告
