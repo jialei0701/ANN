@@ -78,8 +78,6 @@ LFM虽然可以有效利用隐式反馈来学习到用户和物品的隐语义�
 Movielens|6040|3952|1000209|95.81% 
 Pinterest|55187|9916|1500809|99.73% 
 
-![visualization](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/visualization.png)
-
 ![LOSS](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/LossComp.png)
 
 #### Loss函数可视化
