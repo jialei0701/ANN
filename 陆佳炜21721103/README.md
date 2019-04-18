@@ -46,7 +46,7 @@
 
       文中提到naive的做法是使用单一的LSTM网络进行建模，如下图所示：
 
-     <div align=center><img src="./resources/naive_approach.png" /></div>
+     <div align=center><img src="./resources/naive_approach.png" width="50%" height="50%"/></div>
 
       该方法对音乐特征编码，加窗，每个时间步，输入一个音乐特征，通过LSTM单元输出一个动作特征。
         
