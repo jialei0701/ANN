@@ -110,3 +110,5 @@ Index | Model | Strategy | Result |
 ### 5. 最终报告
 
 [pdf](./final.pdf)
+
+[mp4](./resources/DANCE_C_9.mp4)
