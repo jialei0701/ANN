@@ -10,10 +10,10 @@
 | Task | Due | Done |
 | :- | :- | :- |
 | 1. 选择综述论文 | Mar. 14 | &radic; |  
-| 2. 精读论文，理解模型 | Mar. 21 | x |  
-| 3. 复现论文 | Apr. 4 | x |  
-| 4. 完成对比实验 | Apr. 11 | x |  
-| 5. 形成最后报告 | Apr. 18 | x |  
+| 2. 精读论文，理解模型 | Mar. 21 | &radic; |  
+| 3. 复现论文 | Apr. 4 | &radic; |  
+| 4. 完成对比实验 | Apr. 11 | &radic; |  
+| 5. 形成最后报告 | Apr. 18 | &radic; |  
 
 
 #### 1. Choose a paper
@@ -22,7 +22,7 @@
 
 #### 2. Read paper and understand
 
-[*Todo*]
+
 
 #### 3. Implementation
 
