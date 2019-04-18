@@ -84,6 +84,8 @@ Pinterest|55187|9916|1500809|99.73%
 交叉熵：
 ![loss3](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss3.svg)
 
+注意，当实际标签为 1(y(i)=1) 时，函数的后半部分消失，而当实际标签是为 0(y(i=0)) 时，函数的前半部分消失。简言之，我们只是把对真实值类别的实际预测概率的对数相乘。
+
 损失函数直观图像：
 ![crossentropy](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/crossentropy2.png)
 
