@@ -90,7 +90,7 @@ Pinterest|55187|9916|1500809|99.73%
 损失函数三维仿真图像：
 ![3Dcrossentropy](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/3D-cross-Entropy.jpg)
 
-神经网络的损失函数很多都是非凸的，但可以证明，在本实验中，如果代价函数是交叉熵，最后一层是逻辑单元(sigmod函数），其他层是relu激活函数；那么此时的神经网络的损失函数是凸的。
+神经网络的损失函数很多都是非凸的，但可以证明，在本实验中，如果代价函数是交叉熵，最后一层是sigmod函数，其他层是relu激活函数；那么此时的神经网络的损失函数是凸的。
 
 假设函数f二阶可微，函数f是凸函数的充要条件是：其Hessian矩阵是半正定阵， 即![hessian](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/hessian.png)
 
