@@ -10,9 +10,9 @@
 | :--:| :--: | :--: |
 | 1.选择论文 | Mar.14 | √ |
 | 2.精读论文 | Mar.21 | √ |
-| 3.复现论文 | Apr.4 | 
-| 4. 完成实验 | Apr.11 | 
-| 5.撰写报告 | Apr.18 | 
+| 3.复现论文 | Apr.4 | √ |
+| 4. 完成实验 | Apr.11 | √ |
+| 5.撰写报告 | Apr.18 | √ |
 
 ### 选择论文
 [ANRL: Attributed Network Representation Learning via Deep Neural Networks
@@ -33,7 +33,70 @@
 $L=L_{sg}+\alpha L_{ae} + \beta L_{reg}$，其中，$L_{reg} = \frac{1}{2}\sum_{k=1}^K(||W^{(k)}||_F^2+||\hat{W^{(k)}}||_F^2)$。值得注意的是，$f(.)$函数就是自编码器的编码器部分，它将节点属性信息转换为隐藏空间的表示$y_i^{(K)}$。
 
 ### 复现论文
+##### 主要代码
+- 损失函数：
+
+```python
+def make_skipgram_loss(self):
+	loss = tf.reduce_sum(tf.nn.sampled_softmax_loss(
+	weights=self.nce_weights,
+	biases=self.nce_biases,
+	labels=self.labels,
+	inputs=self.Y,
+	num_sampled=self.config.num_sampled,
+	num_classes=self.N))
+	return loss   
+	
+def make_autoencoder_loss(self):
+    def get_autoencoder_loss(X, newX):
+        return tf.reduce_sum(tf.pow((newX - X), 2))
+    def get_reg_loss(weights, biases):
+        reg = tf.add_n([tf.nn.l2_loss(w) for w in weights.values()])
+        reg += tf.add_n([tf.nn.l2_loss(b) for b in biases.values()])
+        return reg
+    loss_autoencoder = get_autoencoder_loss(self.X_new, self.X_reconstruct)
+    loss_reg = get_reg_loss(self.W, self.b)
+    return self.config.alpha * loss_autoencoder + self.config.reg * loss_reg
+
+```
+-  迭代训练
+
+```python
+for iter_cnt in range(max_iters):
+    idx += 1
+    batch_index, batch_labels = next(graph_context_batch_iter(all_pairs, batch_size))
+    # train for autoencoder model
+    start_idx = np.random.randint(0, N - batch_size)
+    batch_idx = np.array(range(start_idx, start_idx + batch_size))
+    batch_idx = np.random.permutation(batch_idx)
+    batch_X = X[batch_idx]
+    feed_dict = {model.X: batch_X, model.inputs: batch_idx}
+    _, loss_ae_value = sess.run([model.train_opt_ae, model.loss_ae], feed_dict=feed_dict)
+    loss_ae += loss_ae_value
+    # train for skip-gram model
+    batch_X = X[batch_index]
+    feed_dict = {model.X: batch_X, model.labels: batch_labels}
+    _, loss_sg_value = sess.run([model.train_opt_sg, model.loss_sg], feed_dict=feed_dict)
+    loss_sg += loss_sg_value
+    if idx % print_every_k_iterations == 0:
+        end = time.time()
+        print('iterations: %d' % idx + ', time elapsed: %.2f, ' % (end - start), end='')
+        total_loss = loss_sg / idx + loss_ae / idx
+        print('loss: %.2f, ' % total_loss, end='')
+        y = read_label(inputLabelFile)
+        embedding_result = sess.run(model.Y, feed_dict={model.X: X})
+        macro_f1, micro_f1 = multiclass_node_classification_eval(embedding_result, y, 0.7)
+        print('[macro_f1 = %.4f, micro_f1 = %.4f]' % (macro_f1, micro_f1))
+
+```
+- 其他代码详见`code`文件夹
 
 ### 完成实验
+![model](model.png)
 
+![citeseer](citeseer.png) 
+
+![compare](compare.png)
+
+![classification](classification.png)
 ### 撰写报告
