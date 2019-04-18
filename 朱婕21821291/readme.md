@@ -26,3 +26,4 @@ Please look at gcn
 **损失函数（交叉熵）可视化**
 ![损失函数（交叉熵）可视化](https://github.com/jialei0701/ANN/blob/master/%E6%9C%B1%E5%A9%9521821291/3d_entropy.png)
 ### 撰写报告
+[详见实验报告.pdf](https://github.com/jialei0701/ANN/blob/master/%E6%9C%B1%E5%A9%9521821291/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf)
