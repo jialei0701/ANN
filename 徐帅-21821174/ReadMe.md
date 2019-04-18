@@ -82,6 +82,16 @@ Pinterest|55187|9916|1500809|99.73%
 
 ![LOSS](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/LossComp.png)
 
+#### Loss函数可视化
+交叉熵：
+![loss3](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/loss3.svg)
+
+损失函数直观图像：
+![crossentropy](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/crossentropy2.png)
+
+损失函数三维仿真图像：
+![3Dcrossentropy](https://github.com/jialei0701/ANN/blob/master/%E5%BE%90%E5%B8%85-21821174/3D-cross-Entropy.jpg)
+
 ### 完成实验
 #### 评价标准
 本次top-N推荐的性能由命中率（hit ration，HR）以及归一化折损累积增益（normalized discounted cumulative gain, NDCG）来进行衡量。 其中HR是一种召回率相关的指标，假设我们取推荐排名前K的物品作为推荐列表，那么HR就直观地衡量用户下一个交互的物品是否出现在推荐列表中。
