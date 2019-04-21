@@ -1,3 +1,11 @@
+# 最终报告
+
+![最终报告点击此处查看](./FinalReport_胡一夫21821237.pdf)  
+
+以下内容未经整理，与报告内容略有不同。
+---
+
+
 ### 选题介绍
 主题：神经网络在图像风格化绘制中的应用  
 论文：https://arxiv.org/pdf/1508.06576v2.pdf  
@@ -54,16 +62,36 @@
 ![](./results/4000.png)
 ![](./results/6000.png)
 
-### 结果讨论
-所谓的风格化绘制，实际上是一个纹理生成的过程。<br/>
-画出两个月亮。<br/>
-星空出现在地面建筑物上。<br/>
-一栋楼被明显划分成两个物体。<br/>
-实际上只是根据每个像素点，以及这个点和它周围的点的相关关系（这个相关关系由神经网络的feature map捕捉），调整这个像素点的值，使之在一个局部范围内，具有与风格图的局部特征相似的纹理。实际上并不具备认知画作表达的语义的能力。
-
 ### 模型仿真
+图片迭代变化过程如下所示
 ![](./results/modelSimulation/modelSimulation.gif)
 
-
+风格图如下所示 
+![](./results/modelSimulation/style.jpg)
 ### loss仿真
+选取了两对输入参数，均计算了总loss、content项loss、style项loss。从图中可以看出，各项loss均是凸函数，适用凸优化。  
+下面是第一对输入的计算结果：  
+总loss  
 ![](./results/modelSimulation/loss.jpg)
+
+content loss
+![](./results/modelSimulation/content_loss.jpg)
+
+style loss  
+![](./results/modelSimulation/style_loss.jpg)
+
+下面是第二对输入的计算结果：  
+总loss  
+![](./results/modelSimulation/loss2.jpg)
+
+content loss  
+![](./results/modelSimulation/content_loss2.jpg)
+
+style loss  
+![](./results/modelSimulation/style_loss2.jpg)
+
+
+### 结果讨论
+所谓的风格化绘制，实际上是一个纹理生成的过程。<br/>
+实际上只是根据每个像素点，以及这个点和它周围的点的相关关系（这个相关关系由神经网络的feature map捕捉），调整这个像素点的值，使之在一个局部范围内，具有与风格图的局部特征相似的纹理。可认为是在内容图和风格图之间进行插值。实际上并不具备认知画作表达的语义的能力。
+

@@ -13,7 +13,7 @@
 | 2. 精读论文，理解模型 | Mar. 21 | &radic;  |
 | 3. 复现论文-改进思考-对比实验 | Apr. 4 | &radic; |
 | 4. 几何仿真与可视化 | Apr. 11 |&radic;  |
-| 5. 形成最后报告 | Apr. 18 |  | 
+| 5. 形成最后报告 | Apr. 18 |&radic;   | 
 
 ## 1. 选择论文
 查看阶段报告:[Tex](report1-21821275.tex)，[PDF](report1-21821275.pdf)
@@ -106,9 +106,6 @@
 查看阶段报告:[Tex](report3-21821275.tex)，[PDF](report3-21821275.pdf)
 
 ## 4. 几何仿真与可视化
-查看阶段报告:[Tex](report4-21821275.tex)，[PDF](report4-21821275.pdf)
+查看最终报告:[Tex](report_final-21821275.tex)，[PDF](report_final-21821275.pdf)
 
-## 5. 形成最后报告
-TODO
-查看最终报告:[Tex]()，[PDF]()
  
