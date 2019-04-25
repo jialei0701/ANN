@@ -238,3 +238,6 @@ for epoch in range(NB_EPOCHS):
 ![loss](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/picture/Figure_1.png)
 ### 误差分布图
 ![errors](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/picture/errors.png)
+## 5.完成报告
+#### 报告内容有稍许不同，详见链接
+[report](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/%E8%AF%BE%E7%A8%8B%E6%8A%A5%E5%91%8A.pdf)
