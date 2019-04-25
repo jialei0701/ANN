@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: img
+---
+
 # 生物智能算法 神经网络组
 
 ## Personal information
@@ -13,8 +17,8 @@
 | 1. 选择论文 | Mar. 14 | &radic; |
 | 2. 精读论文，理解模型 | Mar. 21 | &radic; |
 | 3. 复现论文 | Apr. 4 | &radic; |
-| 4. 完成对比实验 | Apr. 11 | x |
-| 5. 形成最后报告 | Apr. 18 | x |
+| 4. 完成对比实验 | Apr. 11 | &radic; |
+| 5. 形成最后报告 | Apr. 18 | &radic; |
 
 ### 1. Choose papers
 
@@ -40,26 +44,48 @@
 
 > The above mentioned random numerical approximation methods involving Monte Carlo approximations typically overcome this curse of dimensionality but only provide approximations of the Kolmogorov PDE at a single fixed space-time point.
 
+下图是一类PDE方程的数学定义，第一项为方程本身（其中u就是我们想要拟合的方程），第二项为方程初始条件，第三项为方程的边界条件。
+
 ![](./img/PDE.png)
+
+根据这三个部分，构建三个损失函数分别对应方程，初始条件，边界条件
+
+<img src="./img/loss.png" style="height: 300px;"></img>
+
+训练过程需要分别对方程所在的域和边界初始条件上进行采样
+
+经过网络前向传播，计算损失反向传播更新网络参数
 
 ![algorithm](./img/algorithm.png)
 
-![loss](./img/loss.png)
+文章提出了新的网络层，DMG Layer，与LSTM类似在内部加入了更多的变量
 
-![DGM1](./img/DGM1.png)
+<img src="./img/DGM2.png" style="height: 300px;"></img>
 
-![DGM2](./img/DGM2.png)
+整个网络结构如下，x是采样点输入，将x输入到每个DGM层中，主要目的是为了防止梯度消失，使得网络拟合效果更好
 
-
+<img src="./img/DGM1.png" style="height: 200px;"></img>
 
 ### 3. Implementation
 
-实现热方程的拟合，代码与结果在code文件夹中
+实现代码与结果在code文件夹中
 
 ### 4. Experiment
 
-[*Todo*]
+<img src="E:\GITWORKS\ANN\钟伟东21821073\img\1556176008247.png" style="height: 300px;"></img>
 
-### 5. Final Report
+采样数据的可视化
 
-[*Todo*]
+<img src="E:\GITWORKS\ANN\钟伟东21821073\img\1556176062822.png" style="height: 300px;"></img>
+
+最终拟合结果与有限差分法拟合结果的比对
+
+
+
+<img src="E:\GITWORKS\ANN\钟伟东21821073\img\1556176073179.png" style="height: 300px;"></img>
+
+网络拟合结果与真值之间的差
+
+### 5. Result
+
+经过实验测试，该方法能够解决高维问题上传统方法出现维度灾难的问题，但是在使用过程中仍有很多部分（例如网络的超参数，采样的分布，PDE方程的近似推导等）需要进行调整才能获得可靠的结果，并且在初值边界处拟合较好，其他地方效果会次一点。
