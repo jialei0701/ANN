@@ -11,8 +11,8 @@
   1.选择论文 | Mar.14 | T
   2.精读论文 | Mar.21 | T
   3.复现论文 | Apr.04 | T
-  4.完成对比试验 | Apr.11 | 
-  5.形成报告 | Apr.18 |
+  4.模型仿真 | Apr.11 | T
+  5.形成报告 | Apr.18 | T
 *****
 ## 1.选择论文
 #### Title：Hiding Images in Plain Sight:Deep Steganography
@@ -226,3 +226,4 @@ for epoch in range(NB_EPOCHS):
 [hiding_image](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/hiding_image.py)
 ### 复现结果
 ![result_show](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/result/result_show.JPG)
+## 4.模型仿真
