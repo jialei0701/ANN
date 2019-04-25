@@ -227,7 +227,7 @@ for epoch in range(NB_EPOCHS):
 ### 复现结果
 ![result_show](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/result/result_show.JPG)
 ## 4.模型仿真
-- encoder框架
+#### encoder框架
 ![encoder](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/picture/encoder_model.png)
-- decoder
+#### decoder框架
 ![decoder](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/picture/decoder_model.png)
