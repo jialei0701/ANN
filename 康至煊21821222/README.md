@@ -234,4 +234,6 @@ for epoch in range(NB_EPOCHS):
 ### 模型优化动态图
 ![optimizer-gif](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/picture/adam.gif)
 ### loss下降图
-![loss](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/picture/errors.png)
+![loss](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/picture/Figure_1.png)
+### 误差分布图
+![errors](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/picture/errors.png)
