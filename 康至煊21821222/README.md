@@ -216,7 +216,8 @@ for epoch in range(NB_EPOCHS):
         K.set_value(autoencoder_model.optimizer.lr, lr_schedule(epoch))
         K.set_value(reveal_model.optimizer.lr, lr_schedule(epoch))
         
-        t.set_description('Epoch {} | Batch: {:3} of {}. Loss AE {:10.2f} | Loss Rev {:10.2f}'.format(epoch + 1, idx, m, np.mean(ae_loss), np.mean(rev_loss)))
+        t.set_description('Epoch {} | Batch: {:3} of {}. Loss AE {:10.2f} | 
+        Loss Rev {:10.2f}'.format(epoch + 1, idx, m, np.mean(ae_loss), np.mean(rev_loss)))
     loss_history.append(np.mean(ae_loss))
 ```
 ![train_process](https://github.com/jialei0701/ANN/blob/master/%E5%BA%B7%E8%87%B3%E7%85%8A21821222/result/train_process.JPG)
