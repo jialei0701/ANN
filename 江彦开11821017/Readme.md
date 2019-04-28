@@ -2595,5 +2595,5 @@ def unmold_image(normalized_images, config):
 
  ![img](https://github.com/jialei0701/ANN/blob/master/%E6%B1%9F%E5%BD%A6%E5%BC%8011821017/maskrcnn-image/%E6%A3%80%E6%B5%8B%E7%BB%93%E6%9E%9C2.png)
 
-#### 5. 总结报告
+#### 5. 总结报告（详细见pdf文件）
    * 在目标检测领域，目前的主要有两种做法，一种是基于RCNN的带有reign proposal的方法；一种是先生成一些默认的检测boxes，再根据网络的学习与loss函数将这些默认的boxes与ground truth不断靠近，以得到一个较好的识别效果，这样的方法诸如YOLO、SSD等，其优势是速度较快但在精度上往往有劣势。本项目主要根据论文实现Mask RCNN，属于第一种做法。通过实现不同的网络layers，复现论文的结果，并进行新的实验，将该方法应用到医学图像处理领域，如肿瘤位置检测、细胞检测等，并将结果展示。
