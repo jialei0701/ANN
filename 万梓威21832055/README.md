@@ -70,9 +70,9 @@
 
 ### 完成实验
 * **主要公式**
-![formula](./目标函数公式.jpg)
-![formula](./激活函数公式.jpg)
-![formula](./梯度下降算法公式.jpg)
+* ![formula](./目标函数公式.jpg)
+* ![formula](./激活函数公式.jpg)
+* ![formula](./梯度下降算法公式.jpg)
 
 * **MATLAB部分代码：（完整代码见源文件）**
 <pre name="code" class="MATLAB">
@@ -154,8 +154,8 @@ end
 ![result](./MATLAB运行结果.jpg)
 
 * 损失函数图像
-![result](./损失函数MSE.jpg)
-![result](./损失函数图像.jpg)
+* ![result](./损失函数MSE.jpg)
+* ![result](./损失函数图像.jpg)
 
 * **训练结果可视化：**
 * 神经网络输出结果（都在B=0mm情况下，以α与β为自变量，黑圈为部分实验数据）
