@@ -38,9 +38,6 @@
 
 ### 复现论文
 * **研究背景：**
-<div align=center>
-<img src="https://github.com/jialei0701/ANN/blob/master/%E4%B8%87%E6%A2%93%E5%A8%8121832055/%E5%8C%BB%E7%96%97%E7%A9%BF%E5%88%BA%E6%89%8B%E6%9C%AF%E6%9C%BA%E5%99%A8%E4%BA%BA.jpg" width="600"/>
-</div>
 ![model](./医疗穿刺手术机器人.jpg)
 ![model](./穿刺机器人实物图.jpg)
 
