@@ -50,7 +50,7 @@
    <div align=center><img src="./resources/naive_approach.png" width="50%" height="50%"/></div>
      
 
-> 该方法对音乐特征编码，加窗，每个时间步，输入一个音乐特征，通过LSTM单元输出一个动作特征。
+> 该方法对音乐进行加窗提取特征。每个时间步输入一个音乐特征(16维向量)，通过LSTM单元输出一个动作特征(69维向量)。
       
         
    <div align=center><img src="./resources/final_approach.png" /></div>
