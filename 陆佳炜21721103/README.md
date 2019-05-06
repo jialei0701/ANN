@@ -41,16 +41,16 @@
 
 - #### 2.1 模型架构
 
-> LSTM网络在编码序列数据的Case中表现优秀，而且相比于RNN，LSTM在长期的预测上更加鲁棒。
+> LSTM网络是传统RNN的一种改进，在编码序列数据的案例中表现优秀。相比于Vanilla RNN，LSTM在长期的预测上更加鲁棒。
 >
-> 舞蹈动作序列也是序列的一种，因此本文使用LSTM网络作为基础来对问题进行建模。
+> 舞蹈动作序列也是序列的一种，因此本文使用LSTM单元作为基础来对问题进行建模。
 >
 > 文中提到naive的做法是使用单一的LSTM网络进行建模，如下图所示：
 
    <div align=center><img src="./resources/naive_approach.png" width="50%" height="50%"/></div>
      
 
-> 该方法对音乐进行加窗提取特征。每个时间步输入一个音乐特征(16维向量)，通过LSTM单元输出一个动作特征(69维向量)。
+> 该方法对音乐进行加窗提取特征。每个时间步输入一个音乐特征(16维向量)，通过LSTM单元输出一个动作特征(69维向量)，同时改变LSTM网络的隐层状态C和h。
       
         
    <div align=center><img src="./resources/final_approach.png" /></div>
