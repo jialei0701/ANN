@@ -113,6 +113,9 @@ Index | Model | Strategy | Result |
 
 ### 5. 最终报告
 
-[pdf](./final.pdf)
+[最终报告pdf](./final.pdf)
+[补充说明pdf](./resources/final.pdf)
 
-[mp4](./resources/DANCE_C_9.mp4)
+[结果视频1](./resources/DANCE_R_1.mp4)
+[结果视频2](./resources/DANCE_C_9.mp4)
+更多结果可以查看链接：https://pan.baidu.com/s/13BpVkpnUrZIC21kgKiutTg 提取码:ysop
