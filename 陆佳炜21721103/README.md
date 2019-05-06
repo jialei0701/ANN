@@ -70,6 +70,10 @@
 > 最终loss为:
 
  <div align=center><img src="./resources/loss.png" width="50%" height="50%"/></div>
+ 
+> 损失函数仿真：
+
+ <div align=center><img src="./resources/Figure_5.png" width="50%" height="50%"/></div>
 
 #### 2.2 数据集
 
