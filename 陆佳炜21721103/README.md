@@ -49,8 +49,11 @@
 
    <div align=center><img src="./resources/naive_approach.png" width="50%" height="50%"/></div>
      
+> 该方法通过计算预测值和实际值的欧几里得距离，用该损失函数来进行模型的优化。
 
-> 该方法对音乐进行加窗提取特征。每个时间步输入一个音乐特征(16维向量)，通过LSTM单元，根据当前隐层状态C和H，输出一个动作特征(69维向量)，同时改变LSTM网络的隐层状态C和H，输入到下一个时间步，进行下一步的预测。
+ <div align=center><img src="./resources/loss1.png" width="30%" height="30%"/></div>
+ 
+> 首先对音乐进行加窗提取特征。每个时间步输入一个音乐特征(16维向量)，通过LSTM单元，根据当前隐层状态C和H，输出一个动作特征(69维向量)，同时改变LSTM网络的隐层状态C和H，输入到下一个时间步，进行下一步的预测。
 > 
 > 但是这种做法的问题是：**模型难以收敛**、预测的结果无法保证是否**在一个节拍内连续**。
 >
@@ -60,6 +63,13 @@
    
 > 在改进模型中，作者加入了音乐的Auto-Encoder模块，以进一步提取和处理音乐特征。
 
+> 在这个模型中，损失函数又加入了Loss_extr, 该函数作用是使得压缩后的音乐特征尽量保持原来的信息。
+
+ <div align=center><img src="./resources/loss2.png" width="30%" height="30%"/></div>
+ 
+> 最终loss为:
+
+ <div align=center><img src="./resources/loss.png" width="50%" height="50%"/></div>
 
 #### 2.2 数据集
 
