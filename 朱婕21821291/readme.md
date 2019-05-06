@@ -26,4 +26,5 @@ Please look at gcn
 **损失函数（交叉熵）可视化**
 ![损失函数（交叉熵）可视化](https://github.com/jialei0701/ANN/blob/master/%E6%9C%B1%E5%A9%9521821291/3d_entropy.png)
 ### 撰写报告
+这篇文章介绍了一种基于图结构数据的半监督分类方法。GCN模型使用了一个有效的层级传播规则，该规则基于图上谱卷积的一阶近似，有效的利用了一个节点的领域信息。实验结果表明，该GCN模型能够同时编码图结构和节点特征，对半监督分类有一定帮助。
 [详见实验报告.pdf](https://github.com/jialei0701/ANN/blob/master/%E6%9C%B1%E5%A9%9521821291/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf)
