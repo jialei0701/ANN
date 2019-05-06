@@ -17,10 +17,6 @@ Thomas N. Kipf, Max Welling, Semi-Supervised Classification with Graph Convoluti
 作者提出了一种可扩展的方法，用于图结构数据的半监督学习，该方法基于一个可直接在图上操作的卷积神经网络的有效变体。卷积结构的选择来源于频谱图卷积的局部一阶近似来激励。此模型在图中边的数量上线性缩放，并学习隐藏层表示，其编码局部图结构和节点的特征。此文提出的GCN（图卷积网络）为图结构数据的处理提供了一个崭新的思路，将深度学习中常用于图像的卷积神经网络应用到图数据上。
 ### 精读论文
 [详见精读论文.pdf](https://github.com/jialei0701/ANN/blob/master/%E6%9C%B1%E5%A9%95%2021821291/%E7%B2%BE%E8%AF%BB%E8%AE%BA%E6%96%87.pdf)
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
-  a^2+b^2=c^2 
-</script>
-
 ### 复现论文
 [详见gcn](https://github.com/jialei0701/ANN/tree/master/%E6%9C%B1%E5%A9%9521821291/gcn)
 代码在gcn文件夹中，在cora数据集上的运行结果如下图所示，cora是文献引用网络，共六种类别。图中loss表示交叉熵损失，acc表示准确率，模型的训练只使用了引用网络中150个节点的标签，比例是0.052，可以看出模型的半监督学习效果良好：
