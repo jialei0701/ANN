@@ -50,16 +50,20 @@
    <div align=center><img src="./resources/naive_approach.png" width="50%" height="50%"/></div>
      
 
-> 该方法对音乐进行加窗提取特征。每个时间步输入一个音乐特征(16维向量)，通过LSTM单元输出一个动作特征(69维向量)，同时改变LSTM网络的隐层状态C和h。
-      
+> 该方法对音乐进行加窗提取特征。每个时间步输入一个音乐特征(16维向量)，通过LSTM单元，根据当前隐层状态C和H，输出一个动作特征(69维向量)，同时改变LSTM网络的隐层状态C和H，输入到下一个时间步，进行下一步的预测。
+> 
+> 但是这种做法的问题是：**模型难以收敛**、预测的结果无法保证是否**在一个节拍内连续**。
+>
+> 因此作者提出了如下的**改进模型**：
         
    <div align=center><img src="./resources/final_approach.png" /></div>
+   
+> 在改进模型中，作者加入了音乐的Auto-Encoder模块，以进一步提取和处理音乐特征。
 
 
 #### 2.2 数据集
 
-
-> [Dance Dataset](https://github.com/Jarvisss/Music-to-Dance-Motion-Synthesis)
+> 数据集为原作者通过动作捕捉设备采集的舞蹈数据，链接：[Dance Dataset](https://github.com/Jarvisss/Music-to-Dance-Motion-Synthesis)
 
 
 #### 2.3 特征提取
@@ -94,7 +98,7 @@
 
 > 虽然图上画的是Acoustic features作为输入，但是实际上论文中写的是Acoustic features + temporal features 作为输入，经过全连接层增加模型的非线性，然后将编码后的features输入3-layer LSTM, 每个time-step输出ht，再通过全连接层预测动作序列mt。
 >
-> 文中没有对全连接层的深度、宽度、激活函数作任何描述，我在实现的过程中使用2层全连接，宽度是64，Relu的方式
+> 文中没有对LSTM前后MLP层的深度、宽度、激活函数作任何描述，我在实现的过程中使用深度为2，宽度64的全连接层，每层的输出用LeakyRelu的方式进行激活。
 
 
 ### 4. 对比实验
