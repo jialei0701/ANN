@@ -39,9 +39,9 @@
 
 ### 2. 精读论文, 理解模型
 
-- #### 2.1 模型架构
+#### 2.1 模型架构
 
-> LSTM网络是传统RNN的一种改进，在编码序列数据的案例中表现优秀。相比于Vanilla RNN，LSTM在长期的预测上更加鲁棒。
+> LSTM网络是传统RNN的一种改进，在编码序列数据的案例中表现优秀。相比于Vanilla RNN，LSTM在长期的预测上更加鲁棒，因为一定程度上解决了RNN的梯度消失和梯度爆炸的问题，关于LSTM可以查看[这篇文章](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)。
 >
 > 舞蹈动作序列也是序列的一种，因此本文使用LSTM单元作为基础来对问题进行建模。
 >
@@ -66,15 +66,15 @@
 
    <div align=center><img src="./resources/acoustic.png" /></div>
 
-> 对齐后的music使用librosa提取features。
+> 对齐后的music使用librosa提取features, 对每个时间窗口提取16维的特征。
 
-> a)	Mfcc, mfcc_delta 人声
+> a)	Mfcc[3], mfcc_delta[3] 人声
 >
-> b)	Cqt_chroma 音调
+> b)	Cqt_chroma[4] 音调
 >
-> c)	Onset_envelope 音量
+> c)	Onset_envelope[5] 音量
 >
-> d)	Tempogram 节拍周期
+> d)	Tempogram[1] 节拍周期
 
    <div align=center><img src="./resources/temporal.png" /></div>  
 
