@@ -76,23 +76,6 @@
 
 ![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/ROC.jpg)
 
-### 方法间比较
-
-![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/compare.jpg)
-
-&emsp; Sensitivity (SN), Specificity (SP), Strength (ST), Accuracy (ACC), and Mathews Correlation Coefficient (MCC).
-
-### Motif特征有效性
-Explanation for the effectiveness of motif features for the prediction of DNA-binding residue
-
-Discriminant power (DP) of a motif t in CNNsite is calculated by the following formula:
-![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/DP.jpg)
-
-We find that the residues R, K, G are the important compositions of these motifs. This finding is consistent with the study of Szilgyi and Skolnick, in which they found that R, A, G, K and D are important for the formation of protein-DNA interactions. The importance of R for the formation of protein-DNA interactions is further confirmed by Sieber and Allemanns work, which states that R can indirectly interact with DNA by interacting with both the phosphate backbone and the carboxylate of E(345). Since these residues are important for the formation of protein-DNA interactions, we speculate that they often occur in the context of the DNA-binding residues and their occurrences are important features for prediction.
-
-![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/TOP15.jpg)
-
-![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/proposition.jpg)
 
 ---
 ## 3. 复现论文
@@ -562,7 +545,23 @@ if __name__=="__main__":
 ---
 ## 4. 对比实验
 
+### 方法间比较
 
+![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/compare.jpg)
+
+&emsp; Sensitivity (SN), Specificity (SP), Strength (ST), Accuracy (ACC), and Mathews Correlation Coefficient (MCC).
 ---
 
+## 5.模型解释
+### Motif特征有效性
+Explanation for the effectiveness of motif features for the prediction of DNA-binding residue
+
+Discriminant power (DP) of a motif t in CNNsite is calculated by the following formula:
+![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/DP.jpg)
+
+We find that the residues R, K, G are the important compositions of these motifs. This finding is consistent with the study of Szilgyi and Skolnick, in which they found that R, A, G, K and D are important for the formation of protein-DNA interactions. The importance of R for the formation of protein-DNA interactions is further confirmed by Sieber and Allemanns work, which states that R can indirectly interact with DNA by interacting with both the phosphate backbone and the carboxylate of E(345). Since these residues are important for the formation of protein-DNA interactions, we speculate that they often occur in the context of the DNA-binding residues and their occurrences are important features for prediction.
+
+![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/TOP15.jpg)
+
+![avator](https://github.com/jialei0701/ANN/blob/master/%E8%B4%BE%E7%A3%8A11816008/proposition.jpg)
 
