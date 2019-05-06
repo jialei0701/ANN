@@ -212,4 +212,5 @@ class SqueezeSeg(ModelSkeleton):
 ![output2](figures/output2.png)
 ![output3](figures/output3.png)
 ### 总结
-Sequeeze CRF中的超参数大都是根据经验设定的，这很大程度上会限制SqueezeSeg的运用场景扩展能力。如果这些超参数以学习的方式获得，或者用加入一定约束的卷积核代替，应该可以显著扩展模型的使用场景。
+Sequeeze CRF中的超参数大都是根据经验设定的，这很大程度上会限制SqueezeSeg的运用场景扩展能力。如果这些超参数以学习的方式获得，或者用加入一定约束的卷积核代替，应该可以显著扩展模型的使用场景。<br>
+[课程报告链接](report/pdf)
