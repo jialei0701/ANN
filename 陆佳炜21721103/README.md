@@ -49,8 +49,11 @@
 
    <div align=center><img src="./resources/naive_approach.png" width="50%" height="50%"/></div>
      
+> 该方法通过计算预测值和实际值的欧几里得距离，用该损失函数来进行模型的优化。
 
-> 该方法对音乐进行加窗提取特征。每个时间步输入一个音乐特征(16维向量)，通过LSTM单元，根据当前隐层状态C和H，输出一个动作特征(69维向量)，同时改变LSTM网络的隐层状态C和H，输入到下一个时间步，进行下一步的预测。
+ <div align=center><img src="./resources/loss1.png" width="30%" height="30%"/></div>
+ 
+> 首先对音乐进行加窗提取特征。每个时间步输入一个音乐特征(16维向量)，通过LSTM单元，根据当前隐层状态C和H，输出一个动作特征(69维向量)，同时改变LSTM网络的隐层状态C和H，输入到下一个时间步，进行下一步的预测。
 > 
 > 但是这种做法的问题是：**模型难以收敛**、预测的结果无法保证是否**在一个节拍内连续**。
 >
@@ -60,6 +63,17 @@
    
 > 在改进模型中，作者加入了音乐的Auto-Encoder模块，以进一步提取和处理音乐特征。
 
+> 在这个模型中，损失函数又加入了Loss_extr, 该函数作用是使得压缩后的音乐特征尽量保持原来的信息。
+
+ <div align=center><img src="./resources/loss2.png" width="30%" height="30%"/></div>
+ 
+> 最终loss为:
+
+ <div align=center><img src="./resources/loss.png" width="50%" height="50%"/></div>
+ 
+> 损失函数仿真：
+
+ <div align=center><img src="./resources/Figure_5.png" width="50%" height="50%"/></div>
 
 #### 2.2 数据集
 
@@ -105,14 +119,16 @@
 
 Overlap|Index | Model | Strategy | Result |
 |:-|:- | :- | :- | :- |
-|No|1 | LSTM+AutoEncoder | Base Line(Encoder LSTM, input dim:16, outputdim: 8, hidden_size:30, no dropout, seq_len:20, num_layer=3 Decoder LSTM, input dim: 8, outputdim:16, hidden_size:30, no dropout, seq_len:20, num_layer=3) | Slower convergence than naïve approach, but the result is better.(0.35 to 0.6) |  
+|No|1 | LSTM+AutoEncoder | Base Line(Encoder LSTM, input dim:16, outputdim: 8, hidden_size:30, no dropout, seq_len:20, num_layer=3 Decoder LSTM, input dim: 8, outputdim:16, hidden_size:30, no dropout, seq_len:120, num_layer=3) | Slower convergence than naïve approach, but the result is better.(0.35 to 0.6) |  
 ||2 | LSTM+AutoEncoder+temporal indexes | Same as 1 | To average |  
 ||3 | LSTM+AutoEncoder+masking | Same as 1 | Not converge |  
-||4 | LSTM+AutoEncoder+masking + temporal indexes | Same as 1 | Not converge |  
-|yes|5 | GRU+AutoEncoder+temporal+masking | Same as 1 | Litter better than 4 |  
-||6 | GRU+AutoEncoder+temporal+masking | Same as 1 | Litter better than 4 |  
-||7 | GRU+AutoEncoder+temporal+masking | Same as 1 | Litter better than 4 |  
-||8 | GRU+AutoEncoder+temporal+masking | Same as 1 | Litter better than 4 |  
+||4 | LSTM+AutoEncoder+masking+temporal indexes | Same as 1 | Not converge |  
+|yes|5 | LSTM+AutoEncoder+masking+temporal indexes | Same as 1 | Lot better than 4 |  
+||6 | LSTM+AutoEncoder+temporal+masking | Same as 1 | not good as 4 |  
+||7 | GRU+temporal+masking | Same as 1 | not good as 4 |  
+||8 | GRU+AutoEncoder+temporal+masking | Same as 1 | as good as4 |  
+
+> 因此，根据实验结果，最好的方案是GRU/LSTM + AutoEncoder+masking+temporal indexes + overlap
 
 <div align=center><img src="./resources/Figure_1.png" /></div>
 <div align=center>Figure 1: Overlap + per_dim_normalize</div>
