@@ -111,11 +111,20 @@ Index | Model | Strategy | Result |
 |4 | LSTM+AutoEncoder+masking + temporal indexes | Same as 1 | Not converge |  
 |5 | GRU+AutoEncoder+temporal+masking | Same as 1 | Litter better than 4 |  
 
+<div align=center><img src="./resources/Figure_1.png" /></div>
+<div align=center>Figure 1: Overlap + per_dim_normalize</div>
+
+<div align=center><img src="./resources/Figure_2.png" /></div>
+<div align=center>Figure 2: No-Overlap + per_dim_normalize</div>
+
+<div align=center><img src="./resources/Figure_3.png" /></div>
+<div align=center>Figure 3: Overlap + per_feature_normalize</div>
+
 ### 5. 最终报告
 
 [最终报告pdf](./final.pdf)
 
-[补充说明pdf](./resources/final.pdf)
+[补充说明pdf](./resources/supp.pdf)
 
 [结果视频1](./resources/DANCE_R_1.mp4)
 
