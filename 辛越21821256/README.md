@@ -207,7 +207,7 @@ class SqueezeSeg(ModelSkeleton):
     return tf.concat([ex1x1, ex3x3], 3, name=layer_name+'/concat')
 ```
 ### 实验结果
-以下是几张SequeezeSeg的分割结果
+以下是几张SequeezeSeg的分割结果<br>
 ![output1](figures/output1.png)
 ![output2](figures/output2.png)
 ![output3](figures/output3.png)
