@@ -382,6 +382,9 @@ class DeconvNet:
 
 ## 4. 完成对比实验
 
+下表是使用PASCAL VOC 2012测试集的输出结果。
+
+![](./image/6.png)
 
 ## 5. 形成报告
 
