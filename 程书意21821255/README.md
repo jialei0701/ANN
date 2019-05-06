@@ -384,7 +384,7 @@ class DeconvNet:
 
 下表是使用PASCAL VOC 2012测试集的输出结果。
 
-![](./image/7.png)
+![](./image/8.png)
 
 ## 5. 形成报告
 
